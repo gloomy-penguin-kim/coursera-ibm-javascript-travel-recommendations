@@ -1,0 +1,33 @@
+b {
+
+	font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace",sans-serif; 
+}
+
+a.tag { 
+	text-decoration: none;
+	font-size: 14px;
+	color: black; 
+    white-space: nowrap;
+} 
+
+div.tag {
+	display: inline-block;
+	padding: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background-color: #e3e6e8;
+	max-width: 400px;
+}
+
+div.tag:hover {
+	display: inline-block; 
+	background-color: #b0b5b8;
+}
+
+.thumbnail {  
+    display: inline-block; /* makes it fit in like an <img> */
+    background-size: cover; /* or contain */
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}

@@ -15,230 +15,183 @@
       <nav>
          <h1>Travel Data Builder</h1> 
       </nav> 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-      <div id="myList" class="" style="height: 400px; column-count: 6; column-gap: 20px;" ></div>    
-      <script>
  
-searchCondition()
-function searchCondition() {  
-  const myList = document.getElementById('myList'); 
-
-  fetch('./list.json')
-    .then(response => response.json())
-    .then(data => {
-      travel_list = data; //.find(item => item.name.toLowerCase() === input);
-
-
-
-    count = 0;
-    data.forEach(row => {  
-      // imgSrc = document.createElement('img')
-      // imgSrc.src = row.Image
-      // imgSrc.style = "max-width:600px";
-      // imgSrc.setAttribute("class", "thumbnail")
-      // entry.appendChild(imgSrc)
-
-
-
-      var card = document.createElement('div');
-      card.setAttribute("class", "card col-sm-6")
-      card.style = "width:18rem; "
- 
-      const hTitle = document.createElement('h5')
-      hTitle.innerText = row.Name + ", " + row.Location  
-      hTitle.setAttribute("class","card-header")
-
  
 
+      <h3 id="pagetitle"></h3>
 
-      if (!row.hasOwnProperty("tags")) {
-        row.tags = []; 
-      } 
-     
-
-
-      searchText = row.Name + ' ' + row.Location
-      searchText = searchText.replace(' ','+')
+      <div id="mainContainer" class=""  ></div>    
+      <script> 
 
 
+function searchCondition(tagParam) {
+    const mainContainer = document.getElementById('mainContainer');
 
 
-      const checkboxDiv = document.createElement("div")
-      checkboxDiv.id = "divCheckboxes" + count  
-   
+    if (tagParam) {   
+      document.getElementById("pagetitle").innerText = tagParam.replace("-","/")
+    }
+    fetch('./list.json')
+        .then(response => response.json())
+        .then(data => {
 
-      row['tags'].forEach(tagelem => { 
-        console.log(tagelem);  
-        if (row.tags.includes(tagelem)) {
-          tagAnchor = document.createElement('a')  
-          tagAnchor.setAttribute("href", "/tags.html?name="+encodeURI(tagelem))
-          tagAnchor.setAttribute("title", "show destinations tagged with '"+ tagelem +"'")
-          tagAnchor.setAttribute("rel", "tag")
-          tagAnchor.setAttribute("class","tag") 
-          tagAnchor.innerText = "  " + tagelem
+            if (tagParam) {   
+              console.log(tagParam)
+              const foundResult = data.filter(element => {
+                tagParam = tagParam.replace("-","/")
+                return element.tags.includes(tagParam)
+              });
+              console.log(foundResult) 
+              data = foundResult 
+            }
 
-          linkDiv = document.createElement('div')
-          linkDiv.setAttribute("class", "tag")
-          linkDiv.appendChild(tagAnchor)  
+            count = 0
+            rowDivCount = 0
+            rowDiv = [] 
 
-          checkboxDiv.appendChild(linkDiv);  
 
-          spacer = document.createElement('div')
-          spacer.style = "width:10px;display:inline-block" 
-          checkboxDiv.appendChild(spacer)
-
-        } 
-      });   
-
-      // const anchor = document.createElement('a'); 
-      // anchor.href = 'https://www.google.com/search?q=site:wikipedia.org+' + searchText; 
-      // anchor.title = 'https://www.google.com/search?q=site:wikipedia.org+' + searchText;
-      // anchor.target = "_blank"
-      // anchor.innerText = row.Name + ' ' + row.Location;
+            data.forEach(row => {
  
-      firstSentence = row['Summary'].split(/(?<=[.?!]\s)(?=[A-Z])/)[0] 
-      pSummary = document.createElement('p')
-      pSummary.innerText = firstSentence
-      pSummary.setAttribute("class","card-text")
-      pSummary.setAttribute("style","overflow:auto; height: 150px")
+                if (count % 5 == 0) {  
+                    rowDiv[rowDivCount] = document.createElement('div')
+                    rowDiv[rowDivCount].classList.add("row") 
+                    rowDivCount++;
+                }
+
+                var card = document.createElement('div');
+                card.setAttribute("class", "card")
+                //card.style = "width:20rem; "
+
+                const hTitle = document.createElement('h5')
+                hTitle.innerText = row.Name + ", " + row.Location
+                hTitle.classList.add("card-header")
+
+                searchText = row.Name + ' ' + row.Location
+                searchText = searchText.replace(' ', '+')
+
+                const tagsDiv = document.createElement("div")
+                tagsDiv.id = "tagsDiv" + count
+
+                row['tags'].forEach(tagelem => { 
+                    if (row.tags.includes(tagelem)) {
+                        tagAnchor = document.createElement('a')
+                        encodedTagelem = encodeURI(tagelem.replace("/", "-"))
+                        tagAnchor.setAttribute("href", "/index.html?tags=" + encodedTagelem)
+                        tagAnchor.setAttribute("title", "show destinations tagged with '" + tagelem + "'")
+                        tagAnchor.setAttribute("rel", "tag")
+                        tagAnchor.classList.add("tag") 
+                        tagAnchor.innerText = "  " + tagelem
+
+                        linkDiv = document.createElement('div') 
+                        linkDiv.classList.add("tag") 
+                        linkDiv.appendChild(tagAnchor)
+
+                        tagsDiv.appendChild(linkDiv);
+
+                        spacer = document.createElement('div')
+                        spacer.style = "width:10px;display:inline-block"
+                        tagsDiv.appendChild(spacer)
+
+                    }
+                });
+
+                firstSentence = row['Summary'].split(/(?<=[.?!]\s)(?=[A-Z])/)[0]
+                pSummary = document.createElement('p')
+                pSummary.innerText = firstSentence
+                pSummary.setAttribute("class", "card-text")
+                pSummary.setAttribute("style", "overflow:auto; height: 150px")
+
+
+                googleMap = document.createElement('a')
+                if (row['coordinates'].length == 2) {
+                    googleMap.href = "https://www.google.com/maps/place/" + row['coordinates'][0] + ',' + row['coordinates'][1]
+                    googleMap.setAttribute('class', 'blank-target-links, card-link')
+                    googleMap.innerText = 'Google Map'
+                    googleMap.setAttribute("target", "_blank")
+                }
+
+                wikipediaLink = document.createElement("a")
+                wikipediaLink.href = row['wikipedia']
+                wikipediaLink.setAttribute('class', 'blank-target-links')
+                wikipediaLink.innerText = 'Wikipedia'
+
+                spacer = document.createElement('div')
+                spacer.style = "width:10px;display:inline-block"
+
+
+                imgAnchor = document.createElement('a')
+                imgAnchor.href = "/details.html?location=" + encodeURIComponent(row['Name'])
+                imgSrc = document.createElement('img')
+                imgSrc.setAttribute("class", "card-img-top")
+                imgSrc.style = "max-height:200px; min-height:180px"
+                imgSrc.src = row.Image
+                imgAnchor.appendChild(imgSrc)
+
+                card.appendChild(hTitle)
+                card.appendChild(imgAnchor)
+
+                cardBody = document.createElement('div')
+                cardBody.setAttribute("class", "card-body")
+
+                cardBody.appendChild(pSummary)
+
+                pTags = document.createElement('div')
+                pTags.setAttribute("class", "card-text")
+                pTags.appendChild(tagsDiv)
+
+                cardBody.appendChild(pTags)
+                cardBody.appendChild(document.createElement('br'))
+                cardBody.appendChild(googleMap)
+                cardBody.appendChild(spacer)
+                cardBody.appendChild(wikipediaLink)
 
  
+                card.appendChild(cardBody)
 
 
-      googleMap = document.createElement('a') 
-      if (row['coordinates'].length == 2) { 
-        googleMap.href = "https://www.google.com/maps/place/" + row['coordinates'][0] + ',' + row['coordinates'][1]
-        googleMap.setAttribute('class','blank-target-links, card-link')
-        googleMap.innerText = 'Google Map'
-        googleMap.setAttribute("target", "_blank")
-      }  
+                cardRowBuffer = document.createElement('div')
+                cardRowBuffer.setAttribute("class", "col-sm")
+                
+                cardRowBuffer.appendChild(card) 
 
-      wikipediaLink = document.createElement("a")
-      wikipediaLink.href = row['wikipedia']
-      wikipediaLink.setAttribute('class','blank-target-links')
-      wikipediaLink.innerText = 'Wikipedia'
+                rowDiv[rowDivCount-1].appendChild(cardRowBuffer);
 
-      spacer = document.createElement('div')
-      spacer.style = "width:10px;display:inline-block"   
+                row.number = count;
 
+                if (count % 5 == 0) {
+                    mainContainer.appendChild(rowDiv[rowDivCount-1])
+                    mainContainer.appendChild(document.createElement('br'))
+                } 
+                count++;
+            }); 
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            mainContainer.innerHTML = 'An error occurred while fetching data.';
+        });
+} 
 
-      imgAnchor = document.createElement('a')
-      imgAnchor.href = "/details.html?location=" + encodeURIComponent(row['Name'])
-      imgSrc = document.createElement('img')
-      imgSrc.setAttribute("class","card-img-top")
-      imgSrc.style = "max-height:200px; min-height:180px"
-      imgSrc.src = row.Image
-      imgAnchor.appendChild(imgSrc) 
+// const input = document.getElementById('conditionInput');
 
-      card.appendChild(hTitle) 
-      card.appendChild(imgAnchor) 
+// input.addEventListener('keydown', (event) => {
+//     if (event.key === 'Enter') {
+//         searchCondition();
+//     }
+// });
 
-      cardBody = document.createElement('div')
-      cardBody.setAttribute("class", "card-body")
- 
-      cardBody.appendChild(pSummary)
-
-      pTags = document.createElement('div')
-      pTags.setAttribute("class", "card-text")
-      pTags.appendChild(checkboxDiv)
-      cardBody.appendChild(pTags)
-      cardBody.appendChild(document.createElement('br'))
-      cardBody.appendChild(googleMap)
-      cardBody.appendChild(spacer) 
-      cardBody.appendChild(wikipediaLink)
-
-
-      card.appendChild(cardBody)
-
-      myList.appendChild(card); 
- 
-      row.number = count; 
-
-      // textarea = document.createElement('textarea');  
-      // textarea.id = "textarea" + count 
-      // textarea.style = "width:600px"
-      // textarea.class = "existing-json"
-      // textarea.value = JSON.stringify(row); 
-      // myList.appendChild(textarea)
-
-
-      // myList.appendChild(document.createElement('br'))
-      // textarea2 = document.createElement('textarea');  
-      // textarea2.id = "tags" + count 
-      // textarea2.style = "width:600px;height:350px"
-      // textarea2.class = "tags" 
-      // textarea2.value = row.Summary
-      // myList.appendChild(textarea2)
-
-
-      // myList.appendChild(document.createElement('br'))
-      // myList.appendChild(document.createElement('br'))
-
-      count++; 
-    });
-console.log(travel_list); 
-    // if (condition) {
-    //   const symptoms = condition.symptoms.join(', ');
-    //   const prevention = condition.prevention.join(', ');
-    //   const treatment = condition.treatment;
-
-    //   resultDiv.innerHTML += `<h2>${condition.name}</h2>`;
-    //   resultDiv.innerHTML += `<img src="${condition.imagesrc}" alt="hjh">`;
-
-    //   resultDiv.innerHTML += `<p><strong>Symptoms:</strong> ${symptoms}</p>`;
-    //   resultDiv.innerHTML += `<p><strong>Prevention:</strong> ${prevention}</p>`;
-    //   resultDiv.innerHTML += `<p><strong>Treatment:</strong> ${treatment}</p>`;
-    // } else {
-    //   resultDiv.innerHTML = 'Condition not found.';
-    // }
-  })
-    .catch(error => {
-    console.error('Error:', error);
-    //resultDiv.innerHTML = 'An error occurred while fetching data.';
-  });
+function getQueryParameter(queryParamName) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(queryParamName);
 }
-btnSearch.addEventListener('click', searchCondition);
- 
-const input = document.getElementById('conditionInput');
 
-input.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') { 
-    searchCondition(); 
-  }
-});
+const tagsParam = getQueryParameter('tags');
 
-function getQueryParameter(name) {
-     const urlParams = new URLSearchParams(window.location.search);
-     return urlParams.get(name);
- }
-
- const page = getQueryParameter('page');
-
- console.log(page)
+console.log(tagsParam)
 
          
-//searchCondition()
+searchCondition(tagsParam)
+
+
       </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
    </body>

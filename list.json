@@ -26,7 +26,8 @@
         "Ocean",
         "Water",
         "Nature",
-        "Adventure"
+        "Adventure",
+        "Archaeological"
     ],
     "wikipedia": "https://en.wikipedia.org/wiki/Great_Barrier_Reef",
     "coordinates": [
@@ -46,8 +47,6 @@
         "Mountain",
         "Architecture",
         "Iconic Building/Area",
-        "Nature",
-        "Culture",
         "Nature/Culture",
         "Adventure",
         "Archaeological"

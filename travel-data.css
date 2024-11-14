@@ -5,23 +5,30 @@ b {
 
 a.tag { 
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 13px;
 	color: black; 
     white-space: nowrap;
+	padding-left: 2px;
+	padding-right: 2px;  
+    border-radius: 15px;
 } 
 
 div.tag {
 	display: inline-block;
 	padding: 1px;
 	padding-left: 2px;
-	padding-right: 2px;
-	background-color: #e3e6e8;
-	max-width: 400px;
+	padding-right: 2px;  
+    border-radius: 15px;
+	background-color: #eff2f3;
+}
+
+.card {
+	display:inline-block;
 }
 
 div.tag:hover {
 	display: inline-block; 
-	background-color: #b0b5b8;
+	background-color: #e3e6e8;
 }
 
 .thumbnail {  
@@ -30,4 +37,14 @@ div.tag:hover {
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 5px;
+}
+
+div.card-sizing {  
+  height: 100%;
+  width: 33%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
 }

@@ -1549,7 +1549,7 @@
     "coordinates": [36.983333, -110.1]
 },
 {
-    "Name": "St. Peter's Basilica, Vatican City",
+    "Name": "St. Peter's Basilica",
     "Location": "Vatican City",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg/800px-Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg",
     "number": 84,
@@ -1568,7 +1568,7 @@
     ]
 },
 {
-    "Name": "Dome of the Rock, Israel",
+    "Name": "Dome of the Rock",
     "Location": "Israel",
     "Image": "https://i0.wp.com/www.touristisrael.com/wp-content/uploads/2019/08/Temple-Mount-Copy.jpg?fit=1920%2C1080&ssl=1",
     "number": 85,
@@ -1587,7 +1587,7 @@
     ]
 },
 {
-    "Name": "Red Square, Russia",
+    "Name": "Red Square",
     "Location": "Russia",
     "Image": "https://lp-cms-production.imgix.net/features/2015/04/State-History-Museum-Red-Square-Moscow_cs.jpg?auto=compress&fit=crop&fm=auto&q=50&w=1200&h=800",
     "number": 86,
@@ -1605,7 +1605,7 @@
     ]
 },
 {
-    "Name": "Forbidden City, China",
+    "Name": "Forbidden City",
     "Location": "China",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/The_Forbidden_City_-_View_from_Coal_Hill.jpg",
     "number": 87,
@@ -1625,7 +1625,7 @@
     ]
 },
 {
-    "Name": "Uffizi, Italy",
+    "Name": "Uffizi",
     "Location": "Italy",
     "Image": "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/86/0f/67.jpg",
     "number": 88,
@@ -1642,7 +1642,7 @@
     ]
 },
 {
-    "Name": "Everest base camps, Nepal",
+    "Name": "Everest base camps",
     "Location": "Nepal",
     "Image": "https://c.files.bbci.co.uk/8165/production/_125452133_getty_base_climbers.jpg",
     "number": 89,
@@ -1659,7 +1659,7 @@
     "coordinates": [28.007222, 86.859444]
 },
 {
-    "Name": "Shwedagon Pagoda, Myanmar",
+    "Name": "Shwedagon Pagoda",
     "Location": "Myanmar",
     "Image": "https://www.tripsavvy.com/thmb/WreZEs-qSvUkqshCk26E5WYvBv0=/3292x3292/smart/filters:no_upscale()/shwedagon-pagoda-yangon-5a0e73e44e4f7d0036a76931.jpg",
     "number": 90,
@@ -1677,7 +1677,7 @@
     ]
 },
 {
-    "Name": "Teotihuacan, Mexico",
+    "Name": "Teotihuacan",
     "Location": "Mexico",
     "Image": "https://cdn.britannica.com/42/178942-050-5CF05C54/Pyramid-Moon-Teotihuacan-Mexico.jpg",
     "number": 91,
@@ -1698,7 +1698,7 @@
     ]
 },
 {
-    "Name": "Blue Lagoon (geothermal spa), Iceland",
+    "Name": "Blue Lagoon (geothermal spa)",
     "Location": "Iceland",
     "Image": "https://media-cdn.tripadvisor.com/media/photo-s/12/4f/e1/b6/blue-lagoon.jpg",
     "number": 92,
@@ -1716,7 +1716,7 @@
     ]
 },
 {
-    "Name": "Lake Wānaka, New Zealand",
+    "Name": "Lake Wānaka",
     "Location": "New Zealand",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Wanaka_Glendhu_Bay.jpg",
     "number": 93,
@@ -1735,7 +1735,7 @@
     ]
 },
 {
-    "Name": "Abu Simbel, Egypt",
+    "Name": "Abu Simbel",
     "Location": "Egypt",
     "Image": "https://cdn.britannica.com/49/189749-050-EDADDEC0/Great-Temple-of-Ramses-II-temples-larger.jpg",
     "number": 94,
@@ -1755,7 +1755,7 @@
     ]
 },
 {
-    "Name": "Père Lachaise Cemetery, France",
+    "Name": "Père Lachaise Cemetery",
     "Location": "France",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/1/12/Pere_Lachaise_Chemin_Errazu.jpg",
     "number": 95,
@@ -1774,7 +1774,7 @@
     ]
 },
 {
-    "Name": "Big Sur, USA",
+    "Name": "Big Sur",
     "Location": "USA",
     "Image": "https://lp-cms-production.imgix.net/2019-06/28206231.jpg",
     "number": 96,
@@ -1797,7 +1797,7 @@
     ]
 },
 {
-    "Name": "Matterhorn, Switzerland",
+    "Name": "Matterhorn",
     "Location": "Switzerland",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Matterhorn_from_Domh%C3%BCtte_-_2.jpg",
     "number": 97,
@@ -1814,7 +1814,7 @@
     ]
 },
 {
-    "Name": "Gamla stan, Sweden",
+    "Name": "Gamla stan",
     "Location": "Sweden",
     "Image": "https://imageio.forbes.com/specials-images/imageserve/1154990774/0x0.jpg?format=jpg&width=1200",
     "number": 98,
@@ -1832,7 +1832,7 @@
     ]
 },
 {
-    "Name": "Okavango Delta, Botswana",
+    "Name": "Okavango Delta",
     "Location": "Botswana",
     "Image": "https://cdn.theculturetrip.com/wp-content/uploads/2018/07/photo-1531208853003-c1ec1b8a81d7.jpg",
     "number": 99,
@@ -1850,7 +1850,7 @@
     ]
 },
 {
-    "Name": "Golden Gate Bridge, USA",
+    "Name": "Golden Gate Bridge",
     "Location": "USA",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg",
     "number": 100,
@@ -1869,7 +1869,7 @@
     ]
 },
 {
-    "Name": "Dashashwamedh Ghat, India",
+    "Name": "Dashashwamedh Ghat",
     "Location": "India",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Dasaswamedh_ghat-varanasi_india-andres_larin.jpg",
     "number": 101,
@@ -1889,7 +1889,7 @@
     ]
 },
 {
-    "Name": "Giant's Causeway, Northern Ireland",
+    "Name": "Giant's Causeway",
     "Location": "Northern Ireland",
     "Image": "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/78/32/b3.jpg",
     "number": 102,
@@ -1908,7 +1908,7 @@
     ]
 },
 {
-    "Name": "Auschwitz-Birkenau State Museum, Poland",
+    "Name": "Auschwitz-Birkenau State Museum",
     "Location": "Poland",
     "Image": "https://cdn-imgix.headout.com/tour/19354/TOUR-IMAGE/185d5215-3983-49f2-a675-024b028a2e4f-10427-krakow-auschwitz---birkenau---full-day-guided-tour-from-krakow-01.jpg?auto=compress%2Cformat&h=573&q=75&fit=crop&ar=16%3A9&fm=webp",
     "number": 103,
@@ -1926,7 +1926,7 @@
     ]
 },
 {
-    "Name": "Corcovado National Park, Costa Rica",
+    "Name": "Corcovado National Park",
     "Location": "Costa Rica",
     "Image": "https://d2xuzatlfjyc9k.cloudfront.net/wp-content/uploads/2018/03/Piedras-Blancas-National-Park.jpg",
     "number": 104,
@@ -1947,7 +1947,7 @@
     ]
 },
 {
-    "Name": "Niagara Falls, Canada and USA",
+    "Name": "Niagara Falls",
     "Location": "Canada and USA",
     "Image": "https://cdn.getyourguide.com/img/location/60096cdee428e.jpeg/99.jpg",
     "number": 105,
@@ -1968,7 +1968,7 @@
     ]
 },
 {
-    "Name": "Potala Palace, China",
+    "Name": "Potala Palace",
     "Location": "China",
     "Image": "https://images.chinahighlights.com/allpicture/2017/10/6811a1af6d094722ad000b78_cut_800x500_70.jpg",
     "number": 106,
@@ -1988,7 +1988,7 @@
     ]
 },
 {
-    "Name": "Bora Bora, Society Islands of French Polynesia",
+    "Name": "Bora Bora",
     "Location": "Society Islands of French Polynesia",
     "Image": "https://digital.ihg.com/is/image/ihg/intercontinental-bora-bora-5255821599-2x1?fit=fit,1&wid=2400&hei=1200&qlt=85,0&resMode=sharp2&op_usm=1.75,0.9,2,0",
     "number": 107,
@@ -2010,7 +2010,7 @@
     ]
 },
 {
-    "Name": "Empire State Building, USA",
+    "Name": "Empire State Building",
     "Location": "USA",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/800px-Empire_State_Building_%28aerial_view%29.jpg",
     "number": 108,
@@ -2028,7 +2028,7 @@
     ]
 },
 {
-    "Name": "Budapest, Hungary",
+    "Name": "Budapest",
     "Location": "Hungary",
     "Image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/36/37/32/caption.jpg?w=700&h=500&s=1",
     "number": 109,
@@ -2046,7 +2046,7 @@
     ]
 },
 {
-    "Name": "Topkapı Palace, Turkey",
+    "Name": "Topkapı Palace",
     "Location": "Turkey",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Topkap%C4%B1_-_01.jpg",
     "number": 110,
@@ -2064,7 +2064,7 @@
     ]
 },
 {
-    "Name": "Tallinn Old Town, Estonia",
+    "Name": "Tallinn Old Town",
     "Location": "Estonia",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Old_Town_of_Tallinn%2C_Tallinn%2C_Estonia_-_panoramio_%2858%29.jpg",
     "number": 111,
@@ -2081,7 +2081,7 @@
     ]
 },
 {
-    "Name": "Stari Most, Bosnia and Herzegovina",
+    "Name": "Stari Most",
     "Location": "Bosnia and Herzegovina",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Mostar_Old_Town_Panorama_2007.jpg",
     "number": 112,
@@ -2097,7 +2097,7 @@
     "coordinates": [43.33728, 17.81503]
 },
 {
-    "Name": "Ayutthaya Historical Park, Thailand",
+    "Name": "Ayutthaya Historical Park",
     "Location": "Thailand",
     "Image": "https://www.tripsavvy.com/thmb/5Hd67PZyTcVX7xR-vG08cNZHWs4=/3864x2577/filters:fill(auto,1)/wat-chaiwatthanaram-154952905-5ab948870e23d90037649033.jpg",
     "number": 113,
@@ -2120,7 +2120,7 @@
     ]
 },
 {
-    "Name": "Vatican Museums, Vatican City",
+    "Name": "Vatican Museums",
     "Location": "Vatican City",
     "Image": "https://media.cntraveler.com/photos/5edeb3dad0ee55c69ea95b58/5:4/w_2500,h_2000,c_limit/VaticanMuseumInterior-BJPA09.jpg",
     "number": 114,
@@ -2141,7 +2141,7 @@
     ]
 },
 {
-    "Name": "Anakena, Chile",
+    "Name": "Anakena",
     "Location": "Chile",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Anakena-Ahu-Ature.jpg",
     "number": 115,
@@ -2161,7 +2161,7 @@
     ]
 },
 {
-    "Name": "Victoria Peak, Hong Kong",
+    "Name": "Victoria Peak",
     "Location": "Hong Kong",
     "Image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/c9/50/88/photo3jpg.jpg?w=1200&h=1200&s=1",
     "number": 116,
@@ -2180,7 +2180,7 @@
     ]
 },
 {
-    "Name": "St Paul's Cathedral, England",
+    "Name": "St Paul's Cathedral",
     "Location": "England",
     "Image": "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2021/06/ig2CLI311.cover_.B6E7HC.jpg",
     "number": 117,
@@ -2200,7 +2200,7 @@
     ]
 },
 {
-    "Name": "Meteora, Greece",
+    "Name": "Meteora",
     "Location": "Greece",
     "Image": "https://cdn.theatlantic.com/media/img/photo/2018/04/travel-monday-a-photo-trip-to-meteo/m01_194088302-1/original.jpg",
     "number": 118,
@@ -2221,7 +2221,7 @@
     ]
 },
 {
-    "Name": "Temple of Confucius, Qufu, China",
+    "Name": "Temple of Confucius, Qufu",
     "Location": "China",
     "Image": "https://whc.unesco.org/uploads/thumbs/site_0704_0007-1200-630-20131203162349.jpg",
     "number": 119,
@@ -2239,7 +2239,7 @@
     ]
 },
 {
-    "Name": "Copper Canyon, Mexico",
+    "Name": "Copper Canyon",
     "Location": "Mexico",
     "Image": "https://cdn.theculturetrip.com/wp-content/uploads/2018/05/16698750125_578be38d4e_k.jpg",
     "number": 120,
@@ -2257,7 +2257,7 @@
     ]
 },
 {
-    "Name": "Fitz Roy, Argentina and Chile",
+    "Name": "Fitz Roy",
     "Location": "Argentina and Chile",
     "Image": "https://cdn2.civitatis.com/argentina/el-chalten/trekking-2-dias-monte-fitz-roy-grid.jpg",
     "number": 121,
@@ -2276,7 +2276,7 @@
     ]
 },
 {
-    "Name": "Aiguille du Midi, France",
+    "Name": "Aiguille du Midi",
     "Location": "France",
     "Image": "https://www.montblancnaturalresort.com/media/image/cmbb2c/cms/media/ETE-MBNR/TAM/presentation_TAM-Ete.jpg",
     "number": 122,
@@ -2295,7 +2295,7 @@
     ]
 },
 {
-    "Name": "Bryggen, Norway",
+    "Name": "Bryggen",
     "Location": "Norway",
     "Image": "https://en.visitbergen.com/imageresizer/?image=%2Fdmsimgs%2F5111850DF13B3FC77E670BDC99955801749AC37D.jpg&action=ProductDetailExtraLargeNew",
     "number": 123,
@@ -2313,7 +2313,7 @@
     ]
 },
 {
-    "Name": "Stewart Island, New Zealand",
+    "Name": "Stewart Island",
     "Location": "New Zealand",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Stewart_Island_as_seen_from_i_plane.jpg",
     "number": 124,
@@ -2333,7 +2333,7 @@
     ]
 },
 {
-    "Name": "Bhaktapur Durbar Square, Nepal",
+    "Name": "Bhaktapur Durbar Square",
     "Location": "Nepal",
     "Image": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/89/2a.jpg",
     "number": 125,
@@ -2352,7 +2352,7 @@
     ]
 },
 {
-    "Name": "Bazaruto Archipelago, Mozambique",
+    "Name": "Bazaruto Archipelago",
     "Location": "Mozambique",
     "Image": "https://www.fondationsegre.org/wp-content/uploads/2018/10/Bazaruto-copyright-Scott-Ramsay-www.LoveWildAfrica.com-10-750x400.jpg",
     "number": 126,
@@ -2371,7 +2371,7 @@
     ]
 },
 {
-    "Name": "Amsterdam, Netherlands",
+    "Name": "Amsterdam",
     "Location": "Netherlands",
     "Image": "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2018/04/30/1131/Andaz-Amsterdam-Prinsengracht-P333-Lobby.jpg/Andaz-Amsterdam-Prinsengracht-P333-Lobby.16x9.jpg",
     "number": 127,
@@ -2389,7 +2389,7 @@
     ]
 },
 {
-    "Name": "Plitvice Lakes National Park, Croatia",
+    "Name": "Plitvice Lakes National Park",
     "Location": "Croatia",
     "Image": "https://s27363.pcdn.co/wp-content/uploads/2018/10/Plitvice-for-Facebook.jpg.optimal.jpg",
     "number": 128,
@@ -2408,7 +2408,7 @@
     ]
 },
 {
-    "Name": "Great Buddha of Thailand, Thailand",
+    "Name": "Great Buddha of Thailand",
     "Location": "Thailand",
     "Image": "https://resources.thomascook.in/images/holidays/sightSeeing/8026141_Great_Buddha_of_Thailand_960.jpg",
     "number": 130,
@@ -2425,7 +2425,7 @@
     "coordinates": [14.593222, 100.377783]
 },
 {
-    "Name": "Vancouver, Canada",
+    "Name": "Vancouver",
     "Location": "Canada",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/UBC_MOA_with_reflecting_pool_01.JPG",
     "number": 131,
@@ -2443,7 +2443,7 @@
     ]
 },
 {
-    "Name": "Skara Brae, Scotland",
+    "Name": "Skara Brae",
     "Location": "Scotland",
     "Image": "https://www.heraldscotland.com/resources/images/9760764.jpg?type=responsive-gallery-fullscreen",
     "number": 132,
@@ -2464,7 +2464,7 @@
     ]
 },
 {
-    "Name": "Geirangerfjord, Norway",
+    "Name": "Geirangerfjord",
     "Location": "Norway",
     "Image": "https://cdn.kimkim.com/files/a/content_articles/featured_photos/6d4bab6da3e9de31b4acb091212071de6bd286ff/big-c84d4fc4246e2174873c10f9f8f6f377.jpg",
     "number": 133,
@@ -2485,7 +2485,7 @@
     ]
 },
 {
-    "Name": "Tayrona National Natural Park, Colombia",
+    "Name": "Tayrona National Natural Park",
     "Location": "Colombia",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Arrecifes.jpg",
     "number": 134,
@@ -2505,7 +2505,7 @@
     ]
 },
 {
-    "Name": "Choquequirao, Peru",
+    "Name": "Choquequirao",
     "Location": "Peru",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Choquequirao_Plaza.JPG",
     "number": 135,
@@ -2525,7 +2525,7 @@
     ]
 },
 {
-    "Name": "Ephesus, Greece",
+    "Name": "Ephesus",
     "Location": "Greece",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Ephesus_Celsus_Library_Fa%C3%A7ade.jpg",
     "number": 136,
@@ -2545,7 +2545,7 @@
     ]
 },
 {
-    "Name": "Kruger National Park, South Africa",
+    "Name": "Kruger National Park",
     "Location": "South Africa",
     "Image": "https://cdn.kimkim.com/files/a/content_articles/featured_photos/22d8dd5c4ae3a3626e0cf30b0cc97e48bc14c72d/big-5b902d4507219d542102a964d62a091b.jpg",
     "number": 137,
@@ -2563,7 +2563,7 @@
     ]
 },
 {
-    "Name": "Tulum, Mexico",
+    "Name": "Tulum",
     "Location": "Mexico",
     "Image": "https://a.cdn-hotels.com/gdcs/production73/d1624/45ab7e53-4363-41f8-8783-78765ac502ee.jpg",
     "number": 138,
@@ -2584,7 +2584,7 @@
     ]
 },
 {
-    "Name": "Tsukiji fish market, Japan",
+    "Name": "Tsukiji fish market",
     "Location": "Japan",
     "Image": "https://www.japan-guide.com/g18/3021_05.jpg",
     "number": 139,
@@ -2600,7 +2600,7 @@
     ]
 },
 {
-    "Name": "Sintra, Portugal",
+    "Name": "Sintra",
     "Location": "Portugal",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/1/10/Sintra_-_Palacio_da_Pena_%2820332995770%29_%28cropped2%29.jpg",
     "number": 140,
@@ -2620,7 +2620,7 @@
     ]
 },
 {
-    "Name": "Carcassonne, France",
+    "Name": "Carcassonne",
     "Location": "France",
     "Image": "https://www.travelrealfrance.com/wp-content/uploads/2021/11/walking-guided-tour-carcassonne-castle-1024x683.jpg",
     "number": 141,
@@ -2640,7 +2640,7 @@
     ]
 },
 {
-    "Name": "Statue of Liberty, USA",
+    "Name": "Statue of Liberty",
     "Location": "USA",
     "Image": "https://static.dw.com/image/15861462_1004.webp",
     "number": 142,
@@ -2660,7 +2660,7 @@
     ]
 },
 {
-    "Name": "Vatnajökull National Park, Iceland",
+    "Name": "Vatnajökull National Park",
     "Location": "Iceland",
     "Image": "https://visitvatnajokull.is/wp-content/uploads/2018/03/IMG_8955.jpg",
     "number": 143,
@@ -2676,7 +2676,7 @@
     ]
 },
 {
-    "Name": "Blue Mosque, Istanbul, Turkey",
+    "Name": "Blue Mosque, Istanbul",
     "Location": "Turkey",
     "Image": "https://www.carwiz.rent/data/public/2019-07/blue_mosque_15db837b846c60.jpg",
     "number": 144,
@@ -2696,7 +2696,7 @@
     ]
 },
 {
-    "Name": "Gion, Japan",
+    "Name": "Gion",
     "Location": "Japan",
     "Image": "https://i0.wp.com/www.agoda.com/wp-content/uploads/2020/02/Gion-Traditional-houses-in-Gion-district.jpg?ssl=1",
     "number": 145,
@@ -2713,7 +2713,7 @@
     ]
 },
 {
-    "Name": "Leshan Giant Buddha, China",
+    "Name": "Leshan Giant Buddha",
     "Location": "China",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/3/38/Leshan_Buddha_Statue_View.JPG",
     "number": 146,
@@ -2733,7 +2733,7 @@
     ]
 },
 {
-    "Name": "Cave of Altamira, Spain",
+    "Name": "Cave of Altamira",
     "Location": "Spain",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/9_Bisonte_Magdaleniense_pol%C3%ADcromo.jpg",
     "number": 147,
@@ -2754,7 +2754,7 @@
     ]
 },
 {
-    "Name": "Haida Gwaii, Canada",
+    "Name": "Haida Gwaii",
     "Location": "Canada",
     "Image": "http://cdn.cnn.com/cnnnext/dam/assets/200116142444-08-haida-gwaii-super-tease.jpg",
     "number": 148,
@@ -2771,7 +2771,7 @@
     ]
 },
 {
-    "Name": "Mount Kōya, Japan",
+    "Name": "Mount Kōya",
     "Location": "Japan",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Danjogaran_Koyasan12n3200.jpg",
     "number": 149,
@@ -2789,7 +2789,7 @@
     ]
 },
 {
-    "Name": "Mount Etna, Italy",
+    "Name": "Mount Etna",
     "Location": "Italy",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Mt_Etna_and_Catania1.jpg",
     "number": 150,
@@ -2807,7 +2807,7 @@
     ]
 },
 {
-    "Name": "Eiger, Switzerland",
+    "Name": "Eiger",
     "Location": "Switzerland",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/North_face.jpg",
     "number": 151,
@@ -2824,7 +2824,7 @@
     ]
 },
 {
-    "Name": "Walt Disney World, USA",
+    "Name": "Walt Disney World",
     "Location": "USA",
     "Image": "https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/1/433/433/75/vision-dam/digital/parks-platform/parks-global-assets/disney-world/0526ZP_1270MS_xak_R2-1x1.jpg?2022-03-10T19:16:43+00:00",
     "number": 152,
@@ -2838,7 +2838,7 @@
     "coordinates": [28.418611, -81.581111]
 },
 {
-    "Name": "Chernobyl exclusion zone, Ukraine",
+    "Name": "Chernobyl exclusion zone",
     "Location": "Ukraine",
     "Image": "https://s.abcnews.com/images/International/chernobyl-exclusion-zone-zp-jef-220224_1645721333122_hpMain_4x3t_992.jpg",
     "number": 153,
@@ -2856,7 +2856,7 @@
     ]
 },
 {
-    "Name": "Shibuya Crossing, Japan",
+    "Name": "Shibuya Crossing",
     "Location": "Japan",
     "Image": "https://a3.cdn.japantravel.com/photo/3016-194379/1440x960!/tokyo-shibuya-crossing-194379.jpg",
     "number": 154,
@@ -2873,7 +2873,7 @@
     ]
 },
 {
-    "Name": "Viñales Valley, Cuba",
+    "Name": "Viñales Valley",
     "Location": "Cuba",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Vi%C3%B1ales_Valley.jpg",
     "number": 155,
@@ -2888,7 +2888,7 @@
     ]
 },
 {
-    "Name": "Neuschwanstein Castle, Germany",
+    "Name": "Neuschwanstein Castle",
     "Location": "Germany",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Schloss_Neuschwanstein_2013.jpg/1200px-Schloss_Neuschwanstein_2013.jpg",
     "number": 156,
@@ -2905,7 +2905,7 @@
     ]
 },
 {
-    "Name": "Terracotta Army, China",
+    "Name": "Terracotta Army",
     "Location": "China",
     "Image": "https://th-thumbnailer.cdn-si-edu.com/9OMhTzGuUrhksZLoUPi4rUic8qA=/fit-in/1600x0/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/terra-cotta-soldiers-631.jpg",
     "number": 157,
@@ -2923,7 +2923,7 @@
     ]
 },
 {
-    "Name": "Shackleton's Hut, Antarctica",
+    "Name": "Shackleton's Hut",
     "Location": "Antarctica",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/2/24/CapeRoyds.jpg",
     "number": 158,
@@ -2940,7 +2940,7 @@
     ]
 },
 {
-    "Name": "Icehotel (Jukkasjärvi), Sweden",
+    "Name": "Icehotel (Jukkasjärvi)",
     "Location": "Sweden",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/ICEHOTEL_Main_Hall_%282014%29_by_Alessandro_Falca_%26_AnnaSofia_M%C3%A5%C3%A5g.jpg",
     "number": 159,
@@ -2960,7 +2960,7 @@
     ]
 },
 {
-    "Name": "Moraine Lake, Canada",
+    "Name": "Moraine Lake",
     "Location": "Canada",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Moraine_Lake_17092005.jpg",
     "number": 160,
@@ -2981,7 +2981,7 @@
     ]
 },
 {
-    "Name": "Roman Baths (Bath), England",
+    "Name": "Roman Baths (Bath)",
     "Location": "England",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Roman_Baths_in_Bath_Spa%2C_England_-_July_2006.jpg",
     "number": 161,
@@ -3000,7 +3000,7 @@
     ]
 },
 {
-    "Name": "Chobe National Park, Botswana",
+    "Name": "Chobe National Park",
     "Location": "Botswana",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/4/45/Gnus_zebras_chobe_national_park.jpg",
     "number": 162,
@@ -3015,7 +3015,7 @@
     ]
 },
 {
-    "Name": "Inle Lake, Myanmar",
+    "Name": "Inle Lake",
     "Location": "Myanmar",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Inle_Lake_%28Myanmar%29.jpg",
     "number": 163,
@@ -3033,7 +3033,7 @@
     ]
 },
 {
-    "Name": "Kota Kinabalu, Malaysia",
+    "Name": "Kota Kinabalu",
     "Location": "Malaysia",
     "Image": "https://cdn.theculturetrip.com/wp-content/uploads/2017/11/beautiful-kapas-island-off-the-coast-of-kota-kinabalu-sabah.jpg",
     "number": 164,
@@ -3051,7 +3051,7 @@
     ]
 },
 {
-    "Name": "Phong Nha – Kẻ Bàng National Park, Vietnam",
+    "Name": "Phong Nha – Kẻ Bàng National Park",
     "Location": "Vietnam",
     "Image": "https://vietnamdiscovery.com/wp-content/uploads/2019/11/Phong-nha-ke-bang-national-park.jpg",
     "number": 165,
@@ -3071,7 +3071,7 @@
     ]
 },
 {
-    "Name": "Royal Mile, Scotland",
+    "Name": "Royal Mile",
     "Location": "Scotland",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/High_Street%2C_Edinburgh.JPG",
     "number": 166,
@@ -3090,7 +3090,7 @@
     ]
 },
 {
-    "Name": "Christ the Redeemer (statue), Brazil",
+    "Name": "Christ the Redeemer (statue)",
     "Location": "Brazil",
     "Image": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/28/04/4f.jpg",
     "number": 167,

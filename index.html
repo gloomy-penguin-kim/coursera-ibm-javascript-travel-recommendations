@@ -13,10 +13,10 @@
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
       <link rel="manifest" href="/site.webmanifest">
    </head>
-   <body>
+   <body style="background-image: url('forest.jpg');  background-position: center top; background-size: 100% auto; background-attachment: fixed;   background-repeat: no-repeat;">
  
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Gloomy Penguin's Travel Data in Vanilla JS & Boostrap 5</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,13 +54,11 @@
       </form>
     </div>
   </div>
-</nav>
-
- 
-
+</nav> 
+  <br/>
       <center><h3 id="pagetitle"></h3></center> 
 
-      <div id="mainContainer"></div>    
+      <div id="mainContainer" style="padding:10px"></div>     
       <script> 
 
 function loadNavBar() {
@@ -103,7 +101,7 @@ function loadDataIntoBody(tagParam, searchParam) {
     }
     else 
       document.getElementById("pagetitle").innerText = "All Results Displayed"
-document.getElementById("pagetitle").innerHTML = document.getElementById("pagetitle").innerHTML + "<br/><br/>"
+      document.getElementById("pagetitle").innerHTML = document.getElementById("pagetitle").innerHTML + "<br/><br/>"
     fetch('./list.json')
         .then(response => response.json())
         .then(data => {
@@ -152,12 +150,14 @@ document.getElementById("pagetitle").innerHTML = document.getElementById("pageti
                 }
 
                 var card = document.createElement('div');
-                card.setAttribute("class", "card")
+                card.setAttribute("class", "card bg-dark ")
                 card.style = "max-width:30rem; "
 
                 const hTitle = document.createElement('h5')
                 hTitle.innerText = row.Name + ", " + row.Location
                 hTitle.classList.add("card-header")
+                hTitle.classList.add("bg-dark")
+                hTitle.style = "color: rgba(255,255,255,.77);"
 
                 searchText = row.Name + ' ' + row.Location
                 searchText = searchText.replace(' ', '+')
@@ -171,15 +171,12 @@ document.getElementById("pagetitle").innerHTML = document.getElementById("pageti
                       href = "/index.html?tag=" + encodedTagelem
 
                       tagDivAnchor = document.createElement('a')
-                      tagDivAnchor.href = href 
-                      tagDivAnchor.style = "display:inline-block;  text-decoration:none; color: black; padding: 1px;padding-left: 2px;padding-right: 2px;border-radius: 15px;"
-                      tagDivAnchor.class = "tag"
- 
+                      tagDivAnchor.href = href  
+                      tagDivAnchor.class = "tag" 
 
-                      tagDivLink = document.createElement('div')
-                      tagDivLink.style = "white-space: nowrap;  padding: 1px;padding-left: 2px;padding-right: 2px;border-radius: 15px;background-color: #f2f4f5;"
-                      tagDivLink.classList.add("tag")
-                      tagDivLink.classList.add("link-secondary")
+
+                      tagDivLink = document.createElement('div') 
+                      tagDivLink.classList.add("tag-dark") 
                       tagDivLink.innerText = tagelem
 
                       tagDivAnchor.appendChild(tagDivLink) 
@@ -192,10 +189,13 @@ document.getElementById("pagetitle").innerHTML = document.getElementById("pageti
                 pSummary = document.createElement('p')
                 pSummary.innerText = firstSentence
                 pSummary.setAttribute("class", "card-text")
-                pSummary.setAttribute("style", "overflow:auto; height: 150px")
+                pSummary.classList.add("bg-dark") 
+                pSummary.setAttribute("style", "overflow:auto; height: 150px; color: rgba(255,255,255,.77);")
 
 
                 googleMap = document.createElement('a')
+                googleMap.style = "text-decoration: none;"
+
                 if (row['coordinates'].length == 2) {
                     googleMap.href = "https://www.google.com/maps/place/" + row['coordinates'][0] + ',' + row['coordinates'][1]
                     googleMap.setAttribute('class', 'blank-target-links, card-link')
@@ -207,6 +207,7 @@ document.getElementById("pagetitle").innerHTML = document.getElementById("pageti
                 wikipediaLink.href = row['wikipedia']
                 wikipediaLink.setAttribute('class', 'blank-target-links card-link')
                 wikipediaLink.innerText = 'Wikipedia'
+                wikipediaLink.style = "text-decoration: none;"
 
                 spacer = document.createElement('div')
                 spacer.style = "width:10px;display:inline-block"
@@ -272,7 +273,7 @@ function loadDetailsIntoBody(queryParam) {
   document.getElementById("mainContainer").innerHTML = '\
       <div style="overflow:hidden;  padding:10px;">\
           <div class="" style="float:left; width:30rem; " id="pageleftpanel" > \
-              <div style="height:4rem"></div>\
+              <div style="height:2rem"></div>\
               <h3 class=" " id="pagelefttitle">Travel Data Builder</h3>  \
               <p id="pagedescription" style="height:60vh; overflow:auto"></p> \
           </div> \

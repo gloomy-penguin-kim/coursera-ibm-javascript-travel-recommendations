@@ -12,41 +12,44 @@
       <link rel="manifest" href="/site.webmanifest">
    </head>
    <body> 
-    <div style="overflow:hidden;  padding:10px;">
-        <div class="" style="float:left; width:30rem; " id="pageleftpanel" > 
-            <div style="height:6rem"></div>
-            <h3 class=" " id="pagetitle">Travel Data Builder</h3>  
-            <p id="pagedescription" style="height:60vh; overflow:auto"></p> 
-        </div> 
 
-        <div class="" style="display:inline-block; width:2rem; border-radius:20px" > </div>
-        <div class="" style="display:inline-block;  order-radius:20px" > 
-        <img id="pageinnerimage" style="width: 85rem; overflow:hidden; border-radius:20px"> 
 
-    </div> 
+
+    <div id="mainContainer" class=""  ></div>    
 
       <script>
- 
+
+
+document.getElementById("mainContainer").innerHTML = '\
+    <div style="overflow:hidden;  padding:10px;">\
+        <div class="" style="float:left; width:30rem; " id="pageleftpanel" > \
+            <div style="height:6rem"></div>\
+            <h3 class=" " id="pagetitle">Travel Data Builder</h3>  \
+            <p id="pagedescription" style="height:60vh; overflow:auto"></p> \
+        </div> \
+\
+        <div class="" style="display:inline-block; width:2rem; border-radius:20px" > </div>\
+        <div class="" style="display:inline-block;  order-radius:20px" > \
+        <img id="pageinnerimage" style="width: 85rem; overflow:hidden; border-radius:20px"> \
+    </div>\
+'
 
 function getQueryParameter(name) {
      const urlParams = new URLSearchParams(window.location.search); 
      return urlParams.get('location');
  }
 
- const queryParam = getQueryParameter('page');
-
-
+ const queryParam = getQueryParameter('page'); 
 
 fetch('./list.json')
     .then(response => response.json())
     .then(data => {
 
-        function findByName(row) {
-            console.log(row["Name"])
+        function findByName(row) { 
           return row['Name'] == queryParam || row['Name'] == decodeURI(queryParam);
         }
 
-        row = data.find(findByName); 
+        row = data.find(element => element['Name'] == queryParam || element['Name'] == decodeURI(queryParam)); 
         console.log(row); 
 
         document.getElementById('pagetitle').innerText = row["Name"] + ", " + row["Location"]
@@ -60,7 +63,8 @@ fetch('./list.json')
         row['tags'].forEach(tagelem => { 
             console.log(tagelem);   
             tagAnchor = document.createElement('a')  
-            tagAnchor.setAttribute("href", "/tags.html?name="+encodeURI(tagelem))
+            encodedTagelem = encodeURI(tagelem.replace("/", "-"))
+            tagAnchor.setAttribute("href", "/index.html?tags=" + encodedTagelem)
             tagAnchor.setAttribute("title", "show destinations tagged with '"+ tagelem +"'")
             tagAnchor.setAttribute("rel", "tag")
             tagAnchor.setAttribute("class","tag") 
@@ -78,7 +82,7 @@ fetch('./list.json')
         });  
         pageleftpanel.appendChild(tagDiv)
         pageleftpanel.appendChild(document.createElement('br'))
-    
+
 
         googleMap = document.createElement('a') 
         if (row['coordinates'].length == 2) { 

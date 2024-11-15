@@ -1,79 +1,71 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
    <head>
-      <meta charset="UTF-8">
+      <meta charset='UTF-8'>
       <title>Gloomy Pengiun's Travel Data</title> 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous'>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous'></script>
 
-      <link rel="stylesheet" href="travel-data.css">
+      <link rel='stylesheet' href='travel-data.css'>
 
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-      <link rel="manifest" href="/site.webmanifest">
+      <link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png'>
+      <link rel='icon' type='image/png' sizes='32x32' href='/favicon/favicon-32x32.png'>
+      <link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon-16x16.png'>
+      <link rel='manifest' href='/site.webmanifest'>
    </head>
    <body>
 
-<div class="container" style="vertical-align: center;">
+<div class='container' style='vertical-align: center;'>
 
-<form>
-  <div class="form-row">
-    <div class="form-group">
-      <label for="exampleInputName">Name</label>
-      <input type="email" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Name"> 
+<form id='theform' action='mailto:gloomypenguinkim@gmail.com?body=something'>
+  <div class='form-row'>
+    <div class='form-group'>
+      <label for='name'>Name</label>
+      <input type='text' class='form-control' id='name' placeholder='Enter Name' > 
     </div>
   </div>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label for="exampleInputEmail">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <div class='form-row'>
+    <div class='form-group'>
+      <label for='email'>Email address</label>
+      <input type='email' class='form-control' id='email'  placeholder='Enter Email' >
+      <small id='emailHelp' class='form-text text-muted'>We'll never share your email with anyone else.</small>
     </div>
   </div>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label for="exampleInputSubject">Email Subject</label>
-      <input type="text" class="form-control" id="exampleInputSubject" aria-describedby="emailHelp" placeholder="Enter Subject"> 
+  <div class='form-row'>
+    <div class='form-group'>
+      <label for='subject'>Email Subject</label>
+      <input type='text' class='form-control' id='subject'  placeholder='Enter Subject' required> 
     </div>
   </div>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label for="exampleInputEmailText">Message</label>
-      <textarea class="form-control" id="exampleInputEmailText" aria-describedby="emailHelp" placeholder="Enter Text"> </textarea>
+  <div class='form-row'>
+    <div class='form-group'>
+      <label for='body'>Message</label>
+      <textarea class='form-control' id='body'  placeholder='Enter Text' required> </textarea>
     </div>
   </div> 
-  <div class="form-row">
-    <a href="mailto:gloomypenguinkim@gmail.com?body=something">
-      <button type="button" class="btn btn-primary">Send to Gloomy Penguin!</button>
-    </a>
+  <div class='form-row'> 
+      <button id='thesendbutton' type='submit' class='btn btn-primary'>Send to Gloomy Penguin!</button> 
   </div>
 </form> 
 
 </div>
 <script>
+
+theform.addEventListener('submit', () => {
+  const name = encodeURI(document.getElementById('name').value)
+  const email = document.getElementById('email').value
+  const subject = encodeURI(document.getElementById('subject').value)
+  const body = encodeURI(document.getElementById('body').value) 
+  const mailtoUrl = `mailto:gloomy.penguin.kim@gmail.com?subject=${subject}&body=${body}`;
+
+  console.log(mailtoUrl)
+  document.getElementById('theform').action = mailtoUrl
+})
 	
-function createMailtoLink(email, subject, body) {
-
-  const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  // Create a link element
-  const link = document.createElement('a');
-  link.href = mailtoUrl;
-  link.textContent = 'Send Email';
-
-  // Append the link to the DOM
-  document.body.appendChild(link);
-}
-
-// Example usage
-createMailtoLink('gloomy.penguin.kim@google.com', 
-  document.getElementById('exampleInputSubject').value, 
-  document.getElementById('exampleInputEmailText').value);
-
+ 
 	
 </script>
 </body>

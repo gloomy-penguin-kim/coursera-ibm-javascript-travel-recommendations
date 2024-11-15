@@ -26,7 +26,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbarlinks">
         <li class="nav-item">
           <a id="navbarHomePage" class="nav-link active" aria-current="page" href="index.html?page=home">Home</a>
         </li> 
@@ -61,11 +61,10 @@
       <center><h1 id="pagetitle"></h1></center> 
       <div class="container" style="padding:10px;"> 
 
-         <div class="font-weight-bold" style="float:left; width:30rem; padding:1rem;" id="pageleftpanel"> 
-            <p style="color: #212529; font-weight:900; font-size:8rem">Welcome</p>
-
+         <div class="font-weight-bold" style="float:left; width:30rem; " id="pageleftpanel"> 
+            <p style="color: #212529; font-weight:900; font-size:5rem"></p>
          </div>
-        <div id="mainContainer" style="padding:10px; display: inline-block;"> and other text goes here </div>     
+        <div id="mainContainer" style="padding:10px; display: inline-block;"></div>     
       </div>
       <script> 
 
@@ -97,6 +96,14 @@ function loadNavBar() {
 }        
 loadNavBar()
 
+function changeActiveNavLinks() {
+  const navbarlinks = document.getElementById("navbarlinks").children 
+  console.log(navbarlinks) 
+  for (let item of navbarlinks) {
+    item.children[0].classList.remove("active")
+  }
+}
+
 function makeTagDiv(tagsArray) {
 
   const tagsDiv = document.createElement("div")
@@ -107,7 +114,7 @@ function makeTagDiv(tagsArray) {
 
       tagDivAnchor = document.createElement('a')
       tagDivAnchor.href = href  
-      tagDivAnchor.class = "tag"  
+      tagDivAnchor.class = "tag-dark"  
 
       tagDivLink = document.createElement('div') 
       tagDivLink.classList.add("tag-dark") 
@@ -148,13 +155,15 @@ function makeWikiAndGoogleLinks(row) {
   return returnDiv
 }
 
-
 function loadDataIntoBody(tagParam, searchParam) {
+
+    changeActiveNavLinks()
     const mainContainer = document.getElementById('mainContainer');
 
 
     if (tagParam) {   
       document.getElementById("pagetitle").innerText = "Tag: " + tagParam.replace("-","/")
+      document.getElementById("navbarDropdown").classList.add("active")
     }
     else if (searchParam) {   
       document.getElementById("pagetitle").innerText = "Search Results for: " + searchParam.replace("-","/")
@@ -205,7 +214,7 @@ function loadDataIntoBody(tagParam, searchParam) {
                 }
 
                 var card = document.createElement('div');
-                card.setAttribute("class", "card bg-opacity-25") 
+                card.setAttribute("class", "card bg-opacity-25 bg-dark") 
                 card.style = "max-width:30rem;"
 
                 const hTitle = document.createElement('h5')
@@ -279,24 +288,25 @@ function loadDataIntoBody(tagParam, searchParam) {
         });
 } 
 
-function loadDetailsIntoBody(queryParam) { 
-  console.log("loadDetailsIntoBody", loadDetailsIntoBody)
+function loadDetailsIntoBody(queryParam) {   
 
+  changeActiveNavLinks()
 
   document.getElementById("mainContainer").innerHTML = '\
       <div style="overflow:hidden;  padding:10px;">\
           <div class="" style="float:left; width:30rem; background-color:#212529; color: rgba(255, 255, 255, .77); padding:1rem; border-radius:10px" id="pageleftpanel" > \
               <div style="height:2rem"></div>\
               <h3 class=" " id="pagelefttitle">Travel Data Builder</h3>  \
-              <p id="pagedescription" style="height:60vh; overflow:auto"></p> \
+              <p id="pagedescription" style="max-height:60vh; overflow:auto"></p> \
+              <div id="tagLinks"></div> \
+              <div id="wikipedaAndGoogleLinks"></div>\
           </div> \
   \
           <div class="" style="display:inline-block; width:2rem; border-radius:20px" > </div>\
           <div class="" style="display:inline-block; border-radius:15px" > \
-          <img id="pageinnerimage" style="width: 85rem; overflow:hidden; border-radius:20px"> \
+          <a id="pageinnerimageAnchor" target="_blank"><img id="pageinnerimage" style="width: 45rem; overflow:hidden; border-radius:10px"></a> \
       </div>\
-  '
-
+  ' 
 
   fetch('./list.json')
     .then(response => response.json())
@@ -313,35 +323,177 @@ function loadDetailsIntoBody(queryParam) {
 
         document.getElementById('pageinnerimage').src = row["Image"]
 
+        document.getElementById('pageinnerimageAnchor').href = row['Image_URL']
+        document.getElementById('pageinnerimageAnchor').title = row['Image_URL']
+ 
         document.getElementById('pagedescription').innerText = row["Summary"]
 
-
+ 
         const tagDiv = makeTagDiv(row['tags'])
-        pageleftpanel.appendChild(tagDiv)
-        pageleftpanel.appendChild(document.createElement('br'))
+        document.getElementById("tagLinks").appendChild(makeTagDiv(row['tags']))
 
 
         wikiAndGoogleMap =  makeWikiAndGoogleLinks(row)
 
         pageleftpanel = document.getElementById("pageleftpanel") 
-        pageleftpanel.appendChild(wikiAndGoogleMap)
+        document.getElementById('wikipedaAndGoogleLinks').appendChild(wikiAndGoogleMap) 
+      })
+    .catch(error => {
+        document.getElementById('pagelefttitle').innerText = "Error"
+        document.getElementById('pagedescription').innerText = error 
+
+
+    })
+}
+
+function contactPage() { 
+  changeActiveNavLinks()
+  document.getElementById("navbarContactPage").classList.add("active")
  
+  const pageleftpanel = document.getElementById('pageleftpanel')
+  pageleftpanel.children[0].innerText = "Contact"
+
+  const form = document.createElement("form")
+
+  const divRowName = document.createElement("div")
+  divRowName.class = "form-row"
+  const divRowNameGroup = document.createElement("div")
+  divRowNameGroup.class = "form-group"
+  divRowNameGroup.innerHTML = "<label for='name' style='font-weight:bold;'>Name</label><input type='text' class='form-control' id='name' placeholder='Enter Name' style='width:400px; background: rgba(255,255,255, .2); border:none; border-bottom: 1px solid black;'>"
+  divRowName.appendChild(divRowNameGroup)
+
+  const divRowEmail = document.createElement("div")
+  divRowEmail.class = "form-row"
+  divRowEmail.style = "padding-top:10px"
+  const divRowEmailGroup = document.createElement("div")
+  divRowEmailGroup.class = "form-group"
+  divRowEmailGroup.innerHTML = "<label for='email' style='font-weight:bold;'>Email</label><input type='text' class='form-control' id='email' placeholder='Enter Email' style='width:400px; background: rgba(255,255,255, .2); border:none; border-bottom: 1px solid black;'>"
+  divRowEmail.append(divRowEmailGroup)
+
+  const divRowSubject = document.createElement("div")
+  divRowSubject.class = "form-row"
+  divRowSubject.style = "padding-top:10px"
+  const divRowSubjectGroup = document.createElement("div")
+  divRowSubjectGroup.class = "form-group"
+  divRowSubjectGroup.innerHTML = "<label for='subject' style='font-weight:bold;'>Subject</label><input type='text' class='form-control' id='subject' placeholder='Enter Subject'style='width:400px; background: rgba(255,255,255, .2); border:none; border-bottom: 1px solid black;'>"
+  divRowSubject.append(divRowSubjectGroup)
+
+  const divRowBody = document.createElement("div")
+  divRowBody.class = "form-row"
+  divRowBody.style = "padding-top:10px"
+  const divRowBodyGroup = document.createElement("div")
+  divRowBodyGroup.class = "form-group"
+  divRowBodyGroup.innerHTML = "<label for='body' style='font-weight:bold;'>Message</label><textarea class='form-control' id='body' placeholder='Enter Message' style='width:400px; background: rgba(255,255,255, .2); border:none; border-bottom: 1px solid black;'></textarea>"
+  divRowBody.append(divRowBodyGroup)
+
+  const divRowSubmit = document.createElement("div")
+  divRowSubmit.class = "form-row"
+  divRowSubmit.style = "padding-top:20px"
+  const divRowSubmitGroup = document.createElement("div")
+  divRowSubmitGroup.class = "form-group"
+  const contactSubmitButton = document.createElement("button")
+  contactSubmitButton.setAttribute("type", "submit")
+  contactSubmitButton.classList.add("btn")
+  contactSubmitButton.classList.add("btn-primary")
+  contactSubmitButton.innerText = "Send to Gloomy Penguin!"
  
-      }); 
+  divRowSubmitGroup.appendChild(contactSubmitButton)
+  divRowSubmit.append(divRowSubmitGroup) 
 
+  form.append(divRowName) 
+  form.append(divRowEmail) 
+  form.append(divRowSubject) 
+  form.append(divRowBody)
+  form.append(divRowSubmit)
+
+  form.addEventListener('change', (event) =>{ 
+    const name = encodeURI(document.getElementById('name').value)
+    const email = document.getElementById('email').value
+    const subject = encodeURI(document.getElementById('subject').value)
+    const body = encodeURI(document.getElementById('body').value) 
+    const mailtoUrl = `mailto:gloomy.penguin.kim@gmail.com?subject=${subject}&body=${body}`;
+    console.log(mailtoUrl)
+    form.action = mailtoUrl
+  })
+ 
+  const maincontainer = document.getElementById('mainContainer') 
+  maincontainer.appendChild(form)
 }
 
-function concatPage() {
+function aboutusPage() {  
+  changeActiveNavLinks()
+  document.getElementById("navbarAboutusPage").classList.add("active")
 
+  const maincontainer = document.getElementById('mainContainer')  
+ 
+  const pageleftpanel = document.getElementById('pageleftpanel')
+  pageleftpanel.children[0].innerText = "About US"
+ 
+  const textDiv = document.createElement("div") 
+  textDiv.style = "background-color: rgba(33,37,41, 0.88); border-radius:10px; padding:10px; color: rgba(255,255,255,0.8); font-size:28px"
+  textDiv.innerHTML = "<p>This project is a final project for Coursea <a href='https://www.coursera.org/learn/javascript-programming-essentials'>Javascript Programming Essentials</a> published by IBM.  I started with an original dataset from Github at <a href='https://github.com/nghia-t-nguyen/travel-bot-project'>nghia-t-nguyen/travel-bot-project</a> and modified the data using the <a href='https://pypi.org/project/wikipedia/'>Python Wikipedia Project</a> to gather data, images, summaries, coordnates, etc. I really dislike CSS but Bootstrap 5 made it a little easier.  You can find my somewhat clean data for free at <a href='https://github.com/gloomy-penguin-kim/travel-bot-project/blob/main/Updated-Travel-Destinations.json'>gloomy-penguin-kim/travel-bot-project</a>.</p>" 
+  maincontainer.appendChild(textDiv)
+ 
+  maincontainer.appendChild(document.createElement("br")) 
 
+  const ourTeam = document.createElement("div") 
+  ourTeam.style = "background-color: rgba(33,37,41, 0.88); border-radius:10px; padding:10px; color: rgba(255,255,255,0.8); font-size:28px"
+  ourTeam.innerHTML = "<b>Our Team!</b><p>Just Me!  Gloomy.penguin.kim@gmail.com</p>"
+  maincontainer.appendChild(ourTeam)
 }
 
-function aboutusPage() { 
 
-}
+function homePage() {  
+  changeActiveNavLinks()
+  document.getElementById("navbarHomePage").classList.add("active")
 
-function homePage() { 
+  const maincontainer = document.getElementById('mainContainer')  
+ 
+  const pageleftpanel = document.getElementById('pageleftpanel')
+  pageleftpanel.children[0].innerText = "Welcome"
 
+  const textDiv = document.createElement("div") 
+  textDiv.style = "background-color: rgba(33,37,41, 0.88); border-radius:10px; padding:10px; color: rgba(255,255,255,0.8); font-size:28px; width:100vh"
+  textDiv.innerHTML = "<p>Explore the world through travel!<br/>Click to see details on... <br/><br/></p>" 
+
+  fetch('./list.json')
+    .then(response => response.json())
+    .then(data => { 
+        // taken from google AI from a search to do this 
+        function getRandomElements(arr, n) {
+          // Make sure n is not greater than the array length
+          n = Math.min(n, arr.length);
+
+          // Create a copy of the array to avoid modifying the original
+          const copy = [...arr];
+
+          // Shuffle the copy
+          for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copy[i], copy[j]] = [copy[j], copy[i]];
+          }
+
+          // Return the first n elements of the shuffled array
+          return copy.slice(0, n);
+        } 
+        const randomElements = getRandomElements(data, 5);
+        console.log(randomElements); // Example output: [2, 5, 1]
+
+        anchors = [] 
+        randomElements.forEach(row => {
+          const a = document.createElement('a')
+          a.href = "/index.html?details=" + encodeURIComponent(row['Name'])
+          a.innerText = row['Name'] + '. ' + row['Location']
+          textDiv.appendChild(a)
+          textDiv.appendChild(document.createElement("br"))
+          textDiv.appendChild(document.createElement("br"))
+        })
+      })
+    .catch(error => {
+        document.getElementById('pagelefttitle').innerText = "Error"
+        document.getElementById('pagedescription').innerText = error   
+    })
+  maincontainer.appendChild(textDiv)
 }
 
 
@@ -403,6 +555,7 @@ else if (pageParam == "home")
 
 else loadDataIntoBody()
 
+// ATJH E224 FBW0 S7GA MAVF 389T VE12 FNCH
 
       </script>
  

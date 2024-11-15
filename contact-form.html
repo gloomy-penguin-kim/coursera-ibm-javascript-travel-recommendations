@@ -19,37 +19,62 @@
 
 <form>
   <div class="form-row">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name"> 
-  </div>
-  </div>
-
-  <div class="form-row">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
+    <div class="form-group">
+      <label for="exampleInputName">Name</label>
+      <input type="email" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Name"> 
+    </div>
   </div>
 
   <div class="form-row">
-  <div class="form-group">
-    <label for="exampleInputEmailText">Message</label>
-    <textarea type="email" class="form-control" id="exampleInputEmailText" aria-describedby="emailHelp" placeholder="Enter Text"> </textarea>
+    <div class="form-group">
+      <label for="exampleInputEmail">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
   </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="exampleInputSubject">Email Subject</label>
+      <input type="text" class="form-control" id="exampleInputSubject" aria-describedby="emailHelp" placeholder="Enter Subject"> 
+    </div>
   </div>
- 
 
-
-<a href="mailto:gloomypenguinkim@gmail.com">
-  <button type="button" class="btn btn-primary">Send to Gloomy Penguin!</button>
-</a>
-</form>
-
- 
-
+  <div class="form-row">
+    <div class="form-group">
+      <label for="exampleInputEmailText">Message</label>
+      <textarea class="form-control" id="exampleInputEmailText" aria-describedby="emailHelp" placeholder="Enter Text"> </textarea>
+    </div>
+  </div> 
+  <div class="form-row">
+    <a href="mailto:gloomypenguinkim@gmail.com?body=something">
+      <button type="button" class="btn btn-primary">Send to Gloomy Penguin!</button>
+    </a>
+  </div>
+</form> 
 
 </div>
+<script>
+	
+function createMailtoLink(email, subject, body) {
+
+  const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  // Create a link element
+  const link = document.createElement('a');
+  link.href = mailtoUrl;
+  link.textContent = 'Send Email';
+
+  // Append the link to the DOM
+  document.body.appendChild(link);
+}
+
+// Example usage
+createMailtoLink('gloomy.penguin.kim@google.com', 
+  document.getElementById('exampleInputSubject').value, 
+  document.getElementById('exampleInputEmailText').value);
+
+	
+</script>
 </body>
 </html>

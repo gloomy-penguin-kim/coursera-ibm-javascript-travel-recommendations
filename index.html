@@ -13,7 +13,10 @@
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
       <link rel="manifest" href="/site.webmanifest">
    </head>
-   <body style="background-image: url('forest.jpg');  background-position: center top; background-size: 100% auto; background-attachment: fixed;   background-repeat: no-repeat;">
+   <body style="background-image:
+    linear-gradient(to left, rgba(0, 0, 0, 0.52), rgba(255, 255, 255, 0.73)),
+    url('forest.jpg');
+    background-position: center top; background-size: 100% auto; background-attachment: fixed;   background-repeat: no-repeat;">
  
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -23,7 +26,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a id="navbarHomePage" class="nav-link active" aria-current="page" href="index.html?page=home">Home</a>
         </li> 
@@ -39,13 +42,12 @@
         <li class="nav-item">
           <a id="navbarAboutusPage" class="nav-link" href="index.html?page=aboutus">About Us</a>
         </li> 
-
-
+ 
         <li class="nav-item">
           <a id="navbarContactPage" class="nav-link" href="index.html?page=contact">Contact</a>
-        </li> 
-
+        </li>  
       </ul>
+        <div style="display:inline-block; width: 10px "></div>
       <form class="d-flex">
         <input id="searchbox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button id="searchboxSubmit" class="btn btn-outline-success" type="button">Search</button>
@@ -56,9 +58,15 @@
   </div>
 </nav> 
   <br/>
-      <center><h3 id="pagetitle"></h3></center> 
+      <center><h1 id="pagetitle"></h1></center> 
+      <div class="container" style="padding:10px;"> 
 
-      <div id="mainContainer" style="padding:10px"></div>     
+         <div class="font-weight-bold" style="float:left; width:30rem; padding:1rem;" id="pageleftpanel"> 
+            <p style="color: #212529; font-weight:900; font-size:8rem">Welcome</p>
+
+         </div>
+        <div id="mainContainer" style="padding:10px; display: inline-block;"> and other text goes here </div>     
+      </div>
       <script> 
 
 function loadNavBar() {
@@ -89,19 +97,70 @@ function loadNavBar() {
 }        
 loadNavBar()
 
+function makeTagDiv(tagsArray) {
+
+  const tagsDiv = document.createElement("div")
+
+  tagsArray.forEach((tagelem, elemnum) => {  
+      encodedTagelem = encodeURI(tagelem.replace("/", "-"))
+      href = "/index.html?tag=" + encodedTagelem
+
+      tagDivAnchor = document.createElement('a')
+      tagDivAnchor.href = href  
+      tagDivAnchor.class = "tag"  
+
+      tagDivLink = document.createElement('div') 
+      tagDivLink.classList.add("tag-dark") 
+      tagDivLink.innerText = tagelem
+
+      tagDivAnchor.appendChild(tagDivLink) 
+      tagsDiv.appendChild(tagDivAnchor)   
+  });
+
+  return tagsDiv; 
+}
+
+function makeWikiAndGoogleLinks(row) {
+  googleMap = document.createElement('a')
+  googleMap.style = "text-decoration: none;"
+
+  if (row['coordinates'].length == 2) {
+      googleMap.href = "https://www.google.com/maps/place/" + row['coordinates'][0] + ',' + row['coordinates'][1]
+      googleMap.setAttribute('class', 'blank-target-links, card-link')
+      googleMap.innerText = 'Google Map'
+      googleMap.setAttribute("target", "_blank")
+  }
+
+  wikipediaLink = document.createElement("a")
+  wikipediaLink.href = row['wikipedia']
+  wikipediaLink.setAttribute('class', 'blank-target-links card-link')
+  wikipediaLink.innerText = 'Wikipedia'
+  wikipediaLink.style = "text-decoration: none;"
+
+  spacer = document.createElement('div')
+  spacer.style = "width:10px;display:inline-block"
+
+  returnDiv = document.createElement('div')
+  returnDiv.appendChild(wikipediaLink)
+  returnDiv.appendChild(spacer)
+  returnDiv.appendChild(googleMap)
+
+  return returnDiv
+}
+
+
 function loadDataIntoBody(tagParam, searchParam) {
     const mainContainer = document.getElementById('mainContainer');
 
 
     if (tagParam) {   
-      document.getElementById("pagetitle").innerText = tagParam.replace("-","/")
+      document.getElementById("pagetitle").innerText = "Tag: " + tagParam.replace("-","/")
     }
     else if (searchParam) {   
-      document.getElementById("pagetitle").innerText = searchParam.replace("-","/")
+      document.getElementById("pagetitle").innerText = "Search Results for: " + searchParam.replace("-","/")
     }
     else 
-      document.getElementById("pagetitle").innerText = "All Results Displayed"
-      document.getElementById("pagetitle").innerHTML = document.getElementById("pagetitle").innerHTML + "<br/><br/>"
+      document.getElementById("pagetitle").innerText = "All Results Displayed" 
     fetch('./list.json')
         .then(response => response.json())
         .then(data => {
@@ -112,8 +171,7 @@ function loadDataIntoBody(tagParam, searchParam) {
               const foundResult = data.filter(element => {
                 tagParam = tagParam.replace("-","/")
                 return element.tags.includes(tagParam)
-              });
-              console.log(foundResult) 
+              }); 
               data = foundResult 
             }
 
@@ -127,91 +185,49 @@ function loadDataIntoBody(tagParam, searchParam) {
                 searchParam = searchParam.toLowerCase() 
                 return element['Summary'].toLowerCase().includes(searchParam)
               }); 
-              Array.prototype.push.apply(foundResultTag,foundResultSearch); 
-
-              console.log(foundResultTag) 
+              Array.prototype.push.apply(foundResultTag,foundResultSearch);  
               data = foundResultTag 
             }
 
 
             count = 0
             rowDivCount = 0
-            rowDiv = [] 
+            rowDiv = []   
 
-
-            console.log(data.length)
+            const modRowConstant = 4; 
 
             data.forEach(row => {
  
-                if (count % 5 == 0) {  
+                if (count % modRowConstant == 0) {  
                     rowDiv[rowDivCount] = document.createElement('div')
                     rowDiv[rowDivCount].classList.add("row") 
                     rowDivCount++;
                 }
 
                 var card = document.createElement('div');
-                card.setAttribute("class", "card bg-dark ")
-                card.style = "max-width:30rem; "
+                card.setAttribute("class", "card bg-opacity-25") 
+                card.style = "max-width:30rem;"
 
                 const hTitle = document.createElement('h5')
                 hTitle.innerText = row.Name + ", " + row.Location
                 hTitle.classList.add("card-header")
-                hTitle.classList.add("bg-dark")
+                //hTitle.classList.add("bg-light")
                 hTitle.style = "color: rgba(255,255,255,.77);"
 
                 searchText = row.Name + ' ' + row.Location
                 searchText = searchText.replace(' ', '+')
-
-                const tagsDiv = document.createElement("div")
+  
+                const tagsDiv = makeTagDiv(row['tags'])
                 tagsDiv.id = "tagsDiv" + count
-
-                row['tags'].forEach((tagelem, elemnum) => { 
-                    if (row.tags.includes(tagelem)) { 
-                      encodedTagelem = encodeURI(tagelem.replace("/", "-"))
-                      href = "/index.html?tag=" + encodedTagelem
-
-                      tagDivAnchor = document.createElement('a')
-                      tagDivAnchor.href = href  
-                      tagDivAnchor.class = "tag" 
-
-
-                      tagDivLink = document.createElement('div') 
-                      tagDivLink.classList.add("tag-dark") 
-                      tagDivLink.innerText = tagelem
-
-                      tagDivAnchor.appendChild(tagDivLink) 
-                      tagsDiv.appendChild(tagDivAnchor) 
-
-                    }
-                });
 
                 firstSentence = row['Summary'].split(/(?<=[.?!]\s)(?=[A-Z])/)[0]
                 pSummary = document.createElement('p')
                 pSummary.innerText = firstSentence
                 pSummary.setAttribute("class", "card-text")
-                pSummary.classList.add("bg-dark") 
+                //pSummary.classList.add("bg-light") 
                 pSummary.setAttribute("style", "overflow:auto; height: 150px; color: rgba(255,255,255,.77);")
-
-
-                googleMap = document.createElement('a')
-                googleMap.style = "text-decoration: none;"
-
-                if (row['coordinates'].length == 2) {
-                    googleMap.href = "https://www.google.com/maps/place/" + row['coordinates'][0] + ',' + row['coordinates'][1]
-                    googleMap.setAttribute('class', 'blank-target-links, card-link')
-                    googleMap.innerText = 'Google Map'
-                    googleMap.setAttribute("target", "_blank")
-                }
-
-                wikipediaLink = document.createElement("a")
-                wikipediaLink.href = row['wikipedia']
-                wikipediaLink.setAttribute('class', 'blank-target-links card-link')
-                wikipediaLink.innerText = 'Wikipedia'
-                wikipediaLink.style = "text-decoration: none;"
-
-                spacer = document.createElement('div')
-                spacer.style = "width:10px;display:inline-block"
-
+ 
+                wikiAndGoogleMap =  makeWikiAndGoogleLinks(row)
 
                 imgAnchor = document.createElement('a')
                 imgAnchor.href = "/index.html?details=" + encodeURIComponent(row['Name'])
@@ -234,12 +250,9 @@ function loadDataIntoBody(tagParam, searchParam) {
                 pTags.appendChild(tagsDiv)
 
                 cardBody.appendChild(pTags)
-                cardBody.appendChild(document.createElement('br'))
-                cardBody.appendChild(googleMap)
-                cardBody.appendChild(spacer)
-                cardBody.appendChild(wikipediaLink)
+                cardBody.appendChild(document.createElement('br'))  
+                cardBody.appendChild(wikiAndGoogleMap)  
 
- 
                 card.appendChild(cardBody)
 
 
@@ -252,7 +265,7 @@ function loadDataIntoBody(tagParam, searchParam) {
 
                 row.number = count;
 
-                if (count % 5 == 0) {
+                if (count % modRowConstant == 0 || data.length == count-1) {
                     mainContainer.appendChild(rowDiv[rowDivCount-1])
                     mainContainer.appendChild(document.createElement('br'))
                 } 
@@ -272,14 +285,14 @@ function loadDetailsIntoBody(queryParam) {
 
   document.getElementById("mainContainer").innerHTML = '\
       <div style="overflow:hidden;  padding:10px;">\
-          <div class="" style="float:left; width:30rem; " id="pageleftpanel" > \
+          <div class="" style="float:left; width:30rem; background-color:#212529; color: rgba(255, 255, 255, .77); padding:1rem; border-radius:10px" id="pageleftpanel" > \
               <div style="height:2rem"></div>\
               <h3 class=" " id="pagelefttitle">Travel Data Builder</h3>  \
               <p id="pagedescription" style="height:60vh; overflow:auto"></p> \
           </div> \
   \
           <div class="" style="display:inline-block; width:2rem; border-radius:20px" > </div>\
-          <div class="" style="display:inline-block;  order-radius:20px" > \
+          <div class="" style="display:inline-block; border-radius:15px" > \
           <img id="pageinnerimage" style="width: 85rem; overflow:hidden; border-radius:20px"> \
       </div>\
   '
@@ -303,50 +316,16 @@ function loadDetailsIntoBody(queryParam) {
         document.getElementById('pagedescription').innerText = row["Summary"]
 
 
-        const tagDiv = document.createElement("div")
-        row['tags'].forEach(tagelem => {  
-            tagAnchor = document.createElement('a')  
-            encodedTagelem = encodeURI(tagelem.replace("/", "-"))
-            tagAnchor.setAttribute("href", "/index.html?tag=" + encodedTagelem)
-            tagAnchor.setAttribute("title", "show destinations tagged with '"+ tagelem +"'")
-            tagAnchor.setAttribute("rel", "tag")
-            tagAnchor.setAttribute("class","tag") 
-            tagAnchor.innerText = "  " + tagelem
-
-            linkDiv = document.createElement('div')
-            linkDiv.setAttribute("class", "tag")
-            linkDiv.appendChild(tagAnchor)  
-
-            tagDiv.appendChild(linkDiv);  
-
-            spacer = document.createElement('div')
-            spacer.style = "width:10px;display:inline-block" 
-            tagDiv.appendChild(spacer)  
-        });  
+        const tagDiv = makeTagDiv(row['tags'])
         pageleftpanel.appendChild(tagDiv)
         pageleftpanel.appendChild(document.createElement('br'))
 
 
-        googleMap = document.createElement('a') 
-        if (row['coordinates'].length == 2) { 
-            googleMap.href = "https://www.google.com/maps/place/" + row['coordinates'][0] + ',' + row['coordinates'][1]
-            googleMap.setAttribute('class','blank-target-links, card-link')
-            googleMap.innerText = 'Google Map'
-            googleMap.setAttribute("target", "_blank")
-        }  
+        wikiAndGoogleMap =  makeWikiAndGoogleLinks(row)
 
-        wikipediaLink = document.createElement("a")
-        wikipediaLink.href = row['wikipedia']
-        wikipediaLink.setAttribute('class','blank-target-links')
-        wikipediaLink.innerText = 'Wikipedia'
-
-        spacer = document.createElement('div')
-        spacer.style = "width:10px;display:inline-block"   
-
-        pageleftpanel = document.getElementById("pageleftpanel")
-        pageleftpanel.appendChild(wikipediaLink)
-        pageleftpanel.appendChild(spacer)
-        pageleftpanel.appendChild(googleMap)
+        pageleftpanel = document.getElementById("pageleftpanel") 
+        pageleftpanel.appendChild(wikiAndGoogleMap)
+ 
  
       }); 
 

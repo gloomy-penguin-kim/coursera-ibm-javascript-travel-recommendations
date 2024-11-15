@@ -17,7 +17,7 @@ div.tag {
     border-radius: 15px;
 	background-color: #eff2f3;
 }
-
+ 
 div.tag-dark {
 	display: inline-block;
 	padding: 4px; 
@@ -38,30 +38,14 @@ div.tag-dark:hover {
 .card-link:hover {
   text-decoration: none;
 }
-
  
-.card {
-	display:inline-block;
-}
 
 a.tags:hover { 
 	background-color: #e3e6e8;
 }
 
-.thumbnail {  
-    display: inline-block; /* makes it fit in like an <img> */
-    background-size: cover; /* or contain */
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-radius: 5px;
+.form-row {
+	padding-top: 20px ;
 }
 
-div.card-sizing {  
-  height: 100%;
-  width: 33%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
+ 

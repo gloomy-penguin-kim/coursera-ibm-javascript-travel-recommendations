@@ -427,7 +427,7 @@ function aboutusPage() {
   const maincontainer = document.getElementById('mainContainer')  
  
   const pageleftpanel = document.getElementById('pageleftpanel')
-  pageleftpanel.children[0].innerText = "About US"
+  pageleftpanel.children[0].innerText = "About Us"
  
   const textDiv = document.createElement("div") 
   textDiv.style = "background-color: rgba(33,37,41, 0.88); border-radius:10px; padding:10px; color: rgba(255,255,255,0.8); font-size:28px"
@@ -438,7 +438,37 @@ function aboutusPage() {
 
   const ourTeam = document.createElement("div") 
   ourTeam.style = "background-color: rgba(33,37,41, 0.88); border-radius:10px; padding:10px; color: rgba(255,255,255,0.8); font-size:28px"
-  ourTeam.innerHTML = "<b>Our Team!</b><p>Just Me!  Gloomy.penguin.kim@gmail.com</p>"
+  ourTeam.class = "row" 
+
+  const divOne = document.createElement("div")
+  divOne.addClass = "col-sm-6"
+  divOne.style = "display: inline-block;  padding:30px"
+  
+  const img = document.createElement("img")
+  img.src = "pitbull.jpg"
+  img.style = "border-radius: 50%; height: 150px;"
+  divOne.appendChild(img)
+
+
+  const divTwo = document.createElement("div")
+  divTwo.addClass = "col-sm-6"
+  divTwo.style = "display: inline-block"
+  
+  const divTwoA = document.createElement("a")
+  divTwoA.href = "https://github.com/gloomy-penguin-kim"
+  divTwoA.style = "text-decoration: none" 
+
+  const divTwoH3 = document.createElement("h3")
+  divTwoH3.innerText = "gloomy-penguin-kim"
+  divTwoA.appendChild(divTwoH3)
+
+  const divTwoH5 = document.createElement("h5")
+  divTwoH5.innerText = "- vanilla js scripter"
+  divTwo.appendChild(divTwoA)
+  divTwo.appendChild(divTwoH5)
+  
+  ourTeam.appendChild(divOne)
+  ourTeam.appendChild(divTwo) 
   maincontainer.appendChild(ourTeam)
 }
 

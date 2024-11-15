@@ -25,30 +25,32 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          <a id="navbarHomePage" class="nav-link active" aria-current="page" href="index.html?page=home">Home</a>
         </li> 
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Destination Tags
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdownList"> 
-        </ul>
-      </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Destination Tags
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdownList"> 
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a id="navbarAboutusPage" class="nav-link" href="index.html?page=aboutus">About Us</a>
+        </li> 
 
 
         <li class="nav-item">
-          <a class="nav-link" href="index.html?page=contact">Contact</a>
-        </li> 
-
-        <li class="nav-item">
-          <a class="nav-link" href="index.html?page=aboutus">About Us</a>
+          <a id="navbarContactPage" class="nav-link" href="index.html?page=contact">Contact</a>
         </li> 
 
       </ul>
       <form class="d-flex">
         <input id="searchbox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button id="searchboxSubmit" class="btn btn-outline-success" type="button">Search</button>
+        <div style="display:inline-block; width: 10px "></div>
+        <button id="searchboxClear" class="btn btn-outline-success" type="button">Clear</button>
       </form>
     </div>
   </div>
@@ -358,9 +360,21 @@ function aboutusPage() {
 
 }
 
+function homePage() { 
+
+}
+
 
 const searchbox = document.getElementById('searchbox');
 const searchboxSubmit = document.getElementById('searchboxSubmit');
+
+
+function searchboxSubmitFunction() { 
+  console.log("search sumbmit", searchbox.value)
+  loadDataIntoBody(null, searchbox.value);
+  console.log(searchbox.value)
+  window.location.href = "/index.html?search=" + encodeURI(searchbox.value)
+}
 
 searchbox.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
@@ -372,14 +386,11 @@ searchbox.addEventListener('keydown', (event) => {
 searchboxSubmit.addEventListener('click', (event) => { 
         searchboxSubmitFunction() 
 });
-
-
-function searchboxSubmitFunction() { 
-  console.log("search sumbmit", searchbox.value)
-  loadDataIntoBody(null, searchbox.value);
-  console.log(searchbox.value)
-  window.location.href = "/index.html?search=" + encodeURI(searchbox.value)
-}
+ 
+searchboxClear.addEventListener('click', (event) => {
+  searchboxSubmit.value = "" 
+  window.location.href = "/index.html"
+});
 
 function getQueryParameter(queryParamName) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -403,8 +414,12 @@ else if (tagsParam)
 else if (pageParam == "contact")
   contactPage() 
 
-else if (pagePagam == "aboutus")
+else if (pageParam == "aboutus")
   aboutusPage() 
+
+else if (pageParam == "home")
+  homePage() 
+
 
 else loadDataIntoBody()
 

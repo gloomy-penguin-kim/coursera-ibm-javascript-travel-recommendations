@@ -243,7 +243,7 @@ function loadDataIntoBody(tagParam, searchParam) {
                 imgSrc = document.createElement('img')
                 imgSrc.setAttribute("class", "card-img-top")
                 imgSrc.style = "max-height:200px; min-height:180px"
-                imgSrc.src = row.Image
+                imgSrc.src = row.Image_URL
                 imgAnchor.appendChild(imgSrc)
 
                 card.appendChild(hTitle)
@@ -321,10 +321,10 @@ function loadDetailsIntoBody(queryParam) {
 
         document.getElementById('pagelefttitle').innerText = row["Name"] + ", " + row["Location"]
 
-        document.getElementById('pageinnerimage').src = row["Image"]
+        document.getElementById('pageinnerimage').src = row["Image_URL"]
 
-        document.getElementById('pageinnerimageAnchor').href = row['Image_URL'] || row['Image']
-        document.getElementById('pageinnerimageAnchor').title = row['Image_URL'] || row['Image']
+        document.getElementById('pageinnerimageAnchor').href = row['Image_URL']  
+        document.getElementById('pageinnerimageAnchor').title = row['Image_URL']  
  
         document.getElementById('pagedescription').innerText = row["Summary"]
 

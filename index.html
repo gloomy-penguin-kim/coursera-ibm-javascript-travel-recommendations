@@ -137,7 +137,7 @@ function makeTagDiv(tagsArray) {
 
   tagsArray.forEach((tagelem, elemnum) => {  
       encodedTagelem = encodeURI(tagelem.replace("/", "-"))
-      href = "coursera-ibm-javascript-travel-recommendations/index.html?tag=" + encodedTagelem
+      href = "index.html?tag=" + encodedTagelem
 
       tagDivAnchor = document.createElement('a')
       tagDivAnchor.href = href  

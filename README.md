@@ -8,3 +8,6 @@ just download and run `python3 -m http.server 5000 --bind 127.0.0.1` in the main
 
 # Github Pages Hosting: 
 https://gloomy-penguin-kim.github.io/coursera-ibm-javascript-travel-recommendations/
+
+project summary: 
+https://www.coursera.org/lecture/javascript-programming-essentials/project-overview-R9Vbs

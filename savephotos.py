@@ -49,8 +49,12 @@ count = 0
 # returns JSON object as a list 
 data = json.load(f)  
 
+
 with open('outfile.json', 'w', encoding='utf-8') as outfile:
 	outfile.write('[')
+
+	count = 0
+	count2 = 0 
 	for row in data:
 		image_url = row['Image']  
 
@@ -61,54 +65,65 @@ with open('outfile.json', 'w', encoding='utf-8') as outfile:
 		saveFileNameAs = os.path.join(script_running_directory_path, "images", newImageFilename)
 		referenceFileNameAs = os.path.join("images", newImageFilename)
 
-		if os.path.exists(referenceFileNameAs): 
-			row['Image'] = referenceFileNameAs
-			row['Image_URL'] = image_url 
+		if ('Image_URL' not in row):
+ 
+			if os.path.exists(referenceFileNameAs): 
+				print(image_url)
+				print(imageFilename) 
+				print(saveFileNameAs)
+				print(referenceFileNameAs)
+				print(count)
+				print(count2)
+
+				print("\n")
+
+				row['Image_URL'] = image_url  
+				row['Image'] = referenceFileNameAs 
+	# 	if os.path.exists(referenceFileNameAs): 
+	# 		row['Image'] = referenceFileNameAs
+	# 		row['Image_URL'] = image_url  
 
 
+	# 	if not os.path.exists(referenceFileNameAs): 
+
+	# 		# print(image_url)
+	# 		# print(imageFilename) 
+	# 		# print(saveFileNameAs)
+	# 		# print(referenceFileNameAs)
+
+	# 		# print("\n")
 
 
+	# 		try: 
+	# 			urllib.request.urlretrieve(image_url, saveFileNameAs)
+	# 			row['Image'] = referenceFileNameAs
+	# 			row['Image_URL'] = image_url 
 
-		if not os.path.exists(referenceFileNameAs): 
+	# 		except: 
 
-			# print(image_url)
-			# print(imageFilename) 
-			# print(saveFileNameAs)
-			# print(referenceFileNameAs)
+	# 			try:  
+	# 				wget.download(image_url, saveFileNameAs) 
 
-			# print("\n")
+	# 				row['Image'] = referenceFileNameAs
+	# 				row['Image_URL'] = image_url 
 
+	# 			except Exception as e:
+	# 				count+=1
+	# 				# print(count) 
+	# 				# print(image_url)
+	# 				# print(imageFilename) 
+	# 				# print(saveFileNameAs)
+	# 				# print(referenceFileNameAs)
+	# 				# print(e)  
 
-			try: 
-				urllib.request.urlretrieve(image_url, saveFileNameAs)
-				row['Image'] = referenceFileNameAs
-				row['Image_URL'] = image_url 
+	# 				print("# " + str(count))
 
-			except: 
+	# 				print("wget -O " + saveFileNameAs + " \"" + image_url+ "\"")
 
-				try:  
-					wget.download(image_url, saveFileNameAs) 
-
-					row['Image'] = referenceFileNameAs
-					row['Image_URL'] = image_url 
-
-				except Exception as e:
-					count+=1
-					# print(count) 
-					# print(image_url)
-					# print(imageFilename) 
-					# print(saveFileNameAs)
-					# print(referenceFileNameAs)
-					# print(e)  
-
-					print("# " + str(count))
-
-					print("wget -O " + saveFileNameAs + " \"" + image_url+ "\"")
-
-					print("\n")
+	# 				print("\n")
 		 
-					row['Image'] = referenceFileNameAs
-					row['Image_URL'] = image_url 
+	# 				row['Image'] = referenceFileNameAs
+	# 				row['Image_URL'] = image_url 
 
 		json.dump(row, outfile, ensure_ascii=False, indent=4, cls=JSONEncoder)
 		outfile.write(',\n') 

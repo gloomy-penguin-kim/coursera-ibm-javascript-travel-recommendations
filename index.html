@@ -39,6 +39,14 @@
           </ul>
         </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Countries
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdow2" id="navbarCountryList"> 
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a id="navbarAboutusPage" class="nav-link" href="index.html?page=aboutus">About Us</a>
         </li> 
@@ -88,6 +96,26 @@ function loadNavBar() {
               li.appendChild(a) 
               document.getElementById("navbarDropdownList").appendChild(li) 
             }) 
+
+ 
+            countryList = [] 
+            data.forEach(row => {
+              countryList.push(row['Location']) 
+            }) 
+            const countryListTotal = [... new Set(countryList)]  
+            const countryListTotalSorted = countryListTotal.sort()
+
+            countryListTotalSorted.forEach(locationName => {
+
+              const li = document.createElement('li')
+              const a = document.createElement('a')
+              a.classList.add("dropdown-item")
+              a.href = "index.html?location=" + locationName.replace("/","-")
+              a.innerText = locationName
+              li.appendChild(a) 
+              document.getElementById("navbarCountryList").appendChild(li) 
+            }) 
+
         })
         .catch(error => {
             console.error('NavBar Error:', error); 
@@ -168,14 +196,21 @@ function loadDataIntoBody(tagParam, searchParam) {
     else if (searchParam) {   
       document.getElementById("pagetitle").innerText = "Search Results for: " + searchParam.replace("-","/")
     }
+    else if (locationParam) {   
+      document.getElementById("pagetitle").innerText = "Location based on: " + locationParam 
+      document.getElementById("navbarDropdown2").classList.add("active")
+    }
     else 
       document.getElementById("pagetitle").innerText = "All Results Displayed" 
-      fetch('./list.json')
+
+    fetch('./list.json')
         .then(response => response.json())
         .then(data => {
 
             console.log("tagParam",tagParam) 
             console.log("searchParam",searchParam) 
+            console.log("locationParam",locationParam) 
+
             if (tagParam) {    
               const foundResult = data.filter(element => {
                 tagParam = tagParam.replace("-","/")
@@ -183,6 +218,13 @@ function loadDataIntoBody(tagParam, searchParam) {
               }); 
               data = foundResult 
             }
+
+            else if (locationParam) {    
+              const foundResult = data.filter(element => {  
+                return element.Location.includes(locationParam)
+              }); 
+              data = foundResult 
+            } 
 
             else if (searchParam) {    
               const foundResultTag = data.filter(element => {
@@ -561,6 +603,7 @@ function getQueryParameter(queryParamName) {
 
 const tagsParam = getQueryParameter('tag'); 
 const searchParam = getQueryParameter('search'); 
+const locationParam = getQueryParameter('location'); 
 const detailsParam = getQueryParameter('details');   
 const pageParam = getQueryParameter('page'); 
 
@@ -569,6 +612,9 @@ if (detailsParam)
 
 else if (searchParam)
   loadDataIntoBody(null,searchParam)
+
+else if (locationParam)
+  loadDataIntoBody(null,null,locationParam)
 
 else if (tagsParam)  
   loadDataIntoBody(tagsParam)

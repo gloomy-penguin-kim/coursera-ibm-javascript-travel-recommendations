@@ -553,7 +553,7 @@ function homePage() {
         anchors = [] 
         randomElements.forEach(row => {
           const a = document.createElement('a')
-          a.href = "coursera-ibm-javascript-travel-recommendations//index.html?details=" + encodeURIComponent(row['Name'])
+          a.href = "index.html?details=" + encodeURIComponent(row['Name'])
           a.innerText = row['Name'] + '. ' + row['Location']
           textDiv.appendChild(a)
           textDiv.appendChild(document.createElement("br"))

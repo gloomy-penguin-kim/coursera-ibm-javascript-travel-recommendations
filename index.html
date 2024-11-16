@@ -170,7 +170,7 @@ function loadDataIntoBody(tagParam, searchParam) {
     }
     else 
       document.getElementById("pagetitle").innerText = "All Results Displayed" 
-    fetch('./list.json')
+      fetch('./list.json')
         .then(response => response.json())
         .then(data => {
 
@@ -323,8 +323,8 @@ function loadDetailsIntoBody(queryParam) {
 
         document.getElementById('pageinnerimage').src = row["Image"]
 
-        document.getElementById('pageinnerimageAnchor').href = row['Image_URL']
-        document.getElementById('pageinnerimageAnchor').title = row['Image_URL']
+        document.getElementById('pageinnerimageAnchor').href = row['Image_URL'] || row['Image']
+        document.getElementById('pageinnerimageAnchor').title = row['Image_URL'] || row['Image']
  
         document.getElementById('pagedescription').innerText = row["Summary"]
 
@@ -430,8 +430,8 @@ function aboutusPage() {
   pageleftpanel.children[0].innerText = "About Us"
  
   const textDiv = document.createElement("div") 
-  textDiv.style = "background-color: rgba(33,37,41, 0.88); border-radius:10px; padding:10px; color: rgba(255,255,255,0.8); font-size:28px"
-  textDiv.innerHTML = "<p>This project is a final project for Coursea <a href='https://www.coursera.org/learn/javascript-programming-essentials'>Javascript Programming Essentials</a> published by IBM.  I started with an original dataset from Github at <a href='https://github.com/nghia-t-nguyen/travel-bot-project'>nghia-t-nguyen/travel-bot-project</a> and modified the data using the <a href='https://pypi.org/project/wikipedia/'>Python Wikipedia Project</a> to gather data, images, summaries, coordnates, etc. I really dislike CSS but Bootstrap 5 made it a little easier.  You can find my somewhat clean data for free at <a href='https://github.com/gloomy-penguin-kim/travel-bot-project/blob/main/Updated-Travel-Destinations.json'>gloomy-penguin-kim/travel-bot-project</a>.</p>" 
+  textDiv.style = "background-color: rgba(33,37,41, 0.88); border-radius:10px; padding:10px; color: rgba(255,255,255,0.8); font-size:20px"
+  textDiv.innerHTML = "<p>This project is a final project for Coursea <a href='https://www.coursera.org/learn/javascript-programming-essentials'>Javascript Programming Essentials</a> published by IBM.  I started with an original dataset from Github at <a href='https://github.com/nghia-t-nguyen/travel-bot-project'>nghia-t-nguyen/travel-bot-project</a> and modified the data using the <a href='https://pypi.org/project/wikipedia/'>Python Wikipedia Project</a> to gather data, images, summaries, coordnates, etc. I really dislike CSS but Bootstrap 5 made it a little easier.  You can find my somewhat clean data for free at <a href='https://github.com/gloomy-penguin-kim/travel-bot-project/blob/main/Updated-Travel-Destinations.json'>gloomy-penguin-kim/travel-bot-project</a>. I have a background in all things related to data so for me the fun part was gathering and processing the date.  I enjoy backend work but I really need to spend some extra time on the front-end.  I resisted using Node.JS or Express.JS or anything for routing.</p>" 
   maincontainer.appendChild(textDiv)
  
   maincontainer.appendChild(document.createElement("br")) 
@@ -483,7 +483,7 @@ function homePage() {
   pageleftpanel.children[0].innerText = "Welcome"
 
   const textDiv = document.createElement("div") 
-  textDiv.style = "background-color: rgba(33,37,41, 0.88); border-radius:10px; padding:10px; color: rgba(255,255,255,0.8); font-size:28px; width:100vh"
+  textDiv.style = "background-color: rgba(33,37,41, 0.84); border-radius:10px; padding:20px; color: rgba(255,255,255,0.8); font-size:28px; "
   textDiv.innerHTML = "<p>Explore the world through travel!<br/>Click to see details on... <br/><br/></p>" 
 
   fetch('./list.json')

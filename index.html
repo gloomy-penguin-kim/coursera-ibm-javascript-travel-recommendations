@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbarlinks">
         <li class="nav-item">
-          <a id="navbarHomePage" class="nav-link active" aria-current="page" href="index.html?page=home">Home</a>
+          <a id="navbarHomePage" class="nav-link active" aria-current="page" href="coursera-ibm-javascript-travel-recommendations/index.html?page=home">Home</a>
         </li> 
 
         <li class="nav-item dropdown">
@@ -48,11 +48,11 @@
         </li>
 
         <li class="nav-item">
-          <a id="navbarAboutusPage" class="nav-link" href="index.html?page=aboutus">About Us</a>
+          <a id="navbarAboutusPage" class="nav-link" href="coursera-ibm-javascript-travel-recommendations/index.html?page=aboutus">About Us</a>
         </li> 
  
         <li class="nav-item">
-          <a id="navbarContactPage" class="nav-link" href="index.html?page=contact">Contact</a>
+          <a id="navbarContactPage" class="nav-link" href="coursera-ibm-javascript-travel-recommendations/index.html?page=contact">Contact</a>
         </li>  
       </ul>
         <div style="display:inline-block; width: 10px "></div>
@@ -91,7 +91,7 @@ function loadNavBar() {
               const li = document.createElement('li')
               const a = document.createElement('a')
               a.classList.add("dropdown-item")
-              a.href = "index.html?tag=" + tagName.replace("/","-")
+              a.href = "coursera-ibm-javascript-travel-recommendations/index.html?tag=" + tagName.replace("/","-")
               a.innerText = tagName
               li.appendChild(a) 
               document.getElementById("navbarDropdownList").appendChild(li) 
@@ -110,7 +110,7 @@ function loadNavBar() {
               const li = document.createElement('li')
               const a = document.createElement('a')
               a.classList.add("dropdown-item")
-              a.href = "index.html?location=" + locationName.replace("/","-")
+              a.href = "coursera-ibm-javascript-travel-recommendations/index.html?location=" + locationName.replace("/","-")
               a.innerText = locationName
               li.appendChild(a) 
               document.getElementById("navbarCountryList").appendChild(li) 
@@ -138,7 +138,7 @@ function makeTagDiv(tagsArray) {
 
   tagsArray.forEach((tagelem, elemnum) => {  
       encodedTagelem = encodeURI(tagelem.replace("/", "-"))
-      href = "/index.html?tag=" + encodedTagelem
+      href = "coursera-ibm-javascript-travel-recommendations//index.html?tag=" + encodedTagelem
 
       tagDivAnchor = document.createElement('a')
       tagDivAnchor.href = href  
@@ -281,7 +281,7 @@ function loadDataIntoBody(tagParam, searchParam) {
                 wikiAndGoogleMap =  makeWikiAndGoogleLinks(row)
 
                 imgAnchor = document.createElement('a')
-                imgAnchor.href = "/index.html?details=" + encodeURIComponent(row['Name'])
+                imgAnchor.href = "coursera-ibm-javascript-travel-recommendations//index.html?details=" + encodeURIComponent(row['Name'])
                 imgSrc = document.createElement('img')
                 imgSrc.setAttribute("class", "card-img-top")
                 imgSrc.style = "max-height:200px; min-height:180px"
@@ -554,7 +554,7 @@ function homePage() {
         anchors = [] 
         randomElements.forEach(row => {
           const a = document.createElement('a')
-          a.href = "/index.html?details=" + encodeURIComponent(row['Name'])
+          a.href = "coursera-ibm-javascript-travel-recommendations//index.html?details=" + encodeURIComponent(row['Name'])
           a.innerText = row['Name'] + '. ' + row['Location']
           textDiv.appendChild(a)
           textDiv.appendChild(document.createElement("br"))
@@ -577,7 +577,7 @@ function searchboxSubmitFunction() {
   console.log("search sumbmit", searchbox.value)
   loadDataIntoBody(null, searchbox.value);
   console.log(searchbox.value)
-  window.location.href = "/index.html?search=" + encodeURI(searchbox.value)
+  window.location.href = "coursera-ibm-javascript-travel-recommendations//index.html?search=" + encodeURI(searchbox.value)
 }
 
 searchbox.addEventListener('keydown', (event) => {
@@ -593,7 +593,7 @@ searchboxSubmit.addEventListener('click', (event) => {
  
 searchboxClear.addEventListener('click', (event) => {
   searchboxSubmit.value = "" 
-  window.location.href = "/index.html"
+  window.location.href = "coursera-ibm-javascript-travel-recommendations//index.html"
 });
 
 function getQueryParameter(queryParamName) {

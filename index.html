@@ -609,8 +609,10 @@ const pageParam = getQueryParameter('page');
 if (detailsParam)
   loadDetailsIntoBody(detailsParam)
 
-else if (searchParam)
+else if (searchParam) {
   loadDataIntoBody(null,searchParam)
+  document.getElementById("searchbox").value = searchParam
+}
 
 else if (locationParam)
   loadDataIntoBody(null,null,locationParam)

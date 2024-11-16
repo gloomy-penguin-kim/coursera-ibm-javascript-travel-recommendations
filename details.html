@@ -60,8 +60,7 @@ fetch('./list.json')
 
 
         const tagDiv = document.createElement("div")
-        row['tags'].forEach(tagelem => { 
-            console.log(tagelem);   
+        row['tags'].forEach(tagelem => {  
             tagAnchor = document.createElement('a')  
             encodedTagelem = encodeURI(tagelem.replace("/", "-"))
             tagAnchor.setAttribute("href", "/index.html?tags=" + encodedTagelem)

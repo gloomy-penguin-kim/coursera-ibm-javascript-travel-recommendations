@@ -576,7 +576,7 @@ function searchboxSubmitFunction() {
   console.log("search sumbmit", searchbox.value)
   loadDataIntoBody(null, searchbox.value);
   console.log(searchbox.value)
-  window.location.href = "coursera-ibm-javascript-travel-recommendations//index.html?search=" + encodeURI(searchbox.value)
+  window.location.href = "coursera-ibm-javascript-travel-recommendations/index.html?search=" + encodeURI(searchbox.value)
 }
 
 searchbox.addEventListener('keydown', (event) => {
@@ -592,7 +592,7 @@ searchboxSubmit.addEventListener('click', (event) => {
  
 searchboxClear.addEventListener('click', (event) => {
   searchboxSubmit.value = "" 
-  window.location.href = "coursera-ibm-javascript-travel-recommendations//index.html"
+  window.location.href = "coursera-ibm-javascript-travel-recommendations/index.html"
 });
 
 function getQueryParameter(queryParamName) {

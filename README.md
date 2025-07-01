@@ -11,3 +11,5 @@ https://gloomy-penguin-kim.github.io/coursera-ibm-javascript-travel-recommendati
 
 project summary: 
 https://www.coursera.org/lecture/javascript-programming-essentials/project-overview-R9Vbs
+
+data sourced from, but not entirely: https://github.com/nghia-t-nguyen/travel-bot-project
